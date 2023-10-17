@@ -1,0 +1,18 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentation.",
+  "main": "index.js",
+  "repository": "https://github.com/1442916418/docs.git",
+  "author": "yushuisheng <42958928+1442916418@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.22",
+    "vue": "^3.3.4"
+  }
+}
