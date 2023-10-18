@@ -11,6 +11,17 @@ export default {
           { text: 'CSS', link: '/guide/base/CSS/index' },
           { text: 'JavaScript', link: '/guide/base/JavaScript/index' }
         ]
+      },
+      {
+        text: '框架',
+        items: [{ text: 'Vue', link: '/guide/frame/vue/index' }]
+      },
+      {
+        text: '计算机',
+        items: [
+          { text: '网络', link: '/guide/computer/network/index' },
+          { text: 'OSI', link: '/guide/computer/osi/index' }
+        ]
       }
     ],
     editLink: {
