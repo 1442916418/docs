@@ -14,7 +14,10 @@ export default {
       },
       {
         text: '框架',
-        items: [{ text: 'Vue', link: '/guide/frame/vue/index' }]
+        items: [
+          { text: 'Vue', link: '/guide/frame/vue/index' },
+          { text: 'Vue3', link: '/guide/frame/vue3/index' }
+        ]
       },
       {
         text: '计算机',
@@ -33,6 +36,10 @@ export default {
     },
     search: {
       provider: 'local'
+    },
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2023-present Evan You'
     }
   }
 }
