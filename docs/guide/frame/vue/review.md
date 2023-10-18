@@ -37,7 +37,7 @@ vue.js 采用数据劫持结合发布者-订阅者模式，通过`Object.defineP
 
 每个`Vue`实例在创建时都会经历一系列的初始化过程，这些过程中的特定时刻都定义了相应的生命周期钩子，允许用户在这些时刻加入自己的代码。
 
-![Vue2 生命周期](../../../assets/vue2-life-cycle.webp)
+![Vue2 生命周期](/img/vue2-life-cycle.webp)
 
 - **创建阶段**：
   - `beforeCreate`: 在实例初始化后，数据观测和事件配置之前被调用。

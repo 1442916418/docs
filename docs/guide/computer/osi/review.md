@@ -2,7 +2,7 @@
 
 ## 查看 OSI 图片
 
-![OSI 图片](../../../assets/osi.gif)
+![OSI 图片](/img/osi.gif)
 
 ## 各自业务
 
