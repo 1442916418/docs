@@ -28,10 +28,10 @@ export default {
         ]
       }
     ],
-    editLink: {
-      pattern: 'https://github.com/1442916418/docs/main/docs/:path',
-      text: '在 GitHub 上编辑此页面'
-    },
+    // editLink: {
+    //   pattern: 'https://github.com/1442916418/docs/main/docs/:path',
+    //   text: '在 GitHub 上编辑此页面'
+    // },
     lastUpdated: {
       text: '更新时间: '
     },
