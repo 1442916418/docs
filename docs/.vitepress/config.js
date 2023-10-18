@@ -1,6 +1,7 @@
 export default {
+  base: '/docs/',
   title: '鱼的文档',
-  description: '文档...',
+  description: 'HTML、CSS、JavaScript文档...',
   themeConfig: {
     nav: [
       { text: '导航', link: '/guide/index' },
