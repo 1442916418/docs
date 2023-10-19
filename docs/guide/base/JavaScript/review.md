@@ -1016,21 +1016,37 @@ function stopDefault(e) {
 ```javascript
 // 实现 call 方法
 Function.prototype.myCall = function(context, ...args) {
+    // 默认上下文为全局对象
     context = context || window;
+    // 临时属性名
     const fn = Symbol('fn');
+    // this 指向调用 myCall 的函数对象
     context[fn] = this;
+
+    // 执行该函数
     const result = context[fn](...args);
+
+    // 删除临时属性
     delete context[fn];
+
     return result;
 };
 
 // 实现 apply 方法
 Function.prototype.myApply = function(context, args) {
+    // 默认上下文为全局对象
     context = context || window;
+    // 临时属性名
     const fn = Symbol('fn');
+    // this 指向调用 myApply 的函数对象
     context[fn] = this;
+
+    // 执行该函数
     const result = context[fn](...args);
+
+    // 删除临时属性
     delete context[fn];
+
     return result;
 };
 
@@ -1056,8 +1072,12 @@ greet.myApply(person, ['Alice']); // Hello, Alice! My name is John.
 ```javascript
 // 实现 bind 方法
 Function.prototype.myBind = function(context, ...args) {
+    // 储存当前函数的引用
     const fn = this;
+
+    // 返回一个新函数
     return function (...newArgs) {
+        // 使用 apply 调用原函数，并设置 this 上下文和合并参数
         return fn.apply(context, args.concat(newArgs));
     };
 };
