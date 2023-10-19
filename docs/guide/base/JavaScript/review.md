@@ -476,7 +476,95 @@ for (let i = 0; i < 5; i++) {
    console.log(unique(array)); // [{value: 1}, {value: 2}]
    ```
 
-## 10. == 和 === 区别
+## 对象数组去重
+
+```javascript
+const dataArray = [
+    {id: 1, name: 'Alice'},
+    {id: 2, name: 'Bob'},
+    {id: 2, name: 'Bob'},
+    {id: 3, name: 'Charlie'},
+    {id: 1, name: 'Alice'},
+];
+```
+
+1. **使用JSON.stringify()和Set**
+
+```javascript
+function uniqueByJSON(arr) {
+    const uniqueStrArray = [...new Set(arr.map(item => JSON.stringify(item)))];
+    return uniqueStrArray.map(item => JSON.parse(item));
+}
+
+console.log(uniqueByJSON(dataArray));
+```
+
+2. **使用Map**
+
+```javascript
+function uniqueByMap(arr) {
+    const uniqueMap = new Map();
+    arr.forEach(item => {
+        uniqueMap.set(JSON.stringify(item), item);
+    });
+    return [...uniqueMap.values()];
+}
+
+console.log(uniqueByMap(dataArray));
+```
+
+3. **使用reduce方法**
+
+```javascript
+function uniqueByReduce(arr) {
+    return arr.reduce((acc, current) => {
+        const exists = acc.some(item => JSON.stringify(item) === JSON.stringify(current));
+        if (!exists) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+}
+
+console.log(uniqueByReduce(dataArray));
+```
+
+4. **双重for循环**
+
+```javascript
+function uniqueByDoubleLoop(arr) {
+    const result = [];
+    for(let i = 0; i < arr.length; i++) {
+        let isDuplicate = false;
+        for(let j = 0; j < result.length; j++) {
+            if(JSON.stringify(arr[i]) === JSON.stringify(result[j])) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if(!isDuplicate) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+
+console.log(uniqueByDoubleLoop(dataArray));
+```
+
+5. **使用filter方法**
+
+```javascript
+function uniqueByFilter(arr) {
+    return arr.filter((item, index) => {
+        return arr.findIndex(subItem => JSON.stringify(subItem) === JSON.stringify(item)) === index;
+    });
+}
+
+console.log(uniqueByFilter(dataArray));
+```
+
+## == 和 === 区别
 
 - **==**
   
@@ -603,9 +691,7 @@ console.log(calculate("mul", 1.2, 2.3));  // 2.76
 console.log(calculate("div", 1.2, 2));    // 0.6
 ```
 
-顺便说一下，关于处理精度问题的解决方案，目前市面上已经有了很多较为成熟的库，比如 [`bignumber.js`](https://mikemcl.github.io/bignumber.js/)、[`decimal.js`](http://mikemcl.github.io/decimal.js/)、以及 [`big.js`](http://mikemcl.github.io/big.js/) 等，这些库不仅解决了浮点数的运算精度问题，还支持了大数运算，并且修复了原生 toFixed 结果不准确的问题。我们可以根据自己的需求来选择对应的工具。
-
-最后提醒一下：这玩意儿也就面试的时候写一下，强烈建议业务中还是用现成的库，出了问题不负责
+推荐库 [`bignumber.js`](https://mikemcl.github.io/bignumber.js/)、[`decimal.js`](http://mikemcl.github.io/decimal.js/)、以及 [`big.js`](http://mikemcl.github.io/big.js/) 等，这些库不仅解决了浮点数的运算精度问题，还支持了大数运算，并且修复了原生 toFixed 结果不准确的问题。我们可以根据自己的需求来选择对应的工具。
 
 ## 数组的常用方法
 
