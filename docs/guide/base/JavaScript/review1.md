@@ -1,6 +1,6 @@
-# JavaScript 复习
+# JavaScript 复习 - ChartAI
 
-## 事件代理 (Event Delegation) - ChartAI3.5
+## 事件代理 (Event Delegation)
 
 事件代理是一种前端开发技术，用于管理和处理大量相似元素的事件监听器，而不必为每个元素单独添加事件处理程序。它通过将事件监听器附加到容器元素，然后利用事件冒泡机制来捕获和处理事件，从而实现了更高效的事件管理。
 
@@ -50,7 +50,7 @@ myList.addEventListener('click', function(event) {
 
 事件代理是前端开发中的常见技术之一，可以改善性能并简化代码，特别是在需要处理大量元素的情况下。
 
-## JavaScript 中 "this" 的工作原理 - ChartAI3.5
+## JavaScript 中 "this" 的工作原理
 
 在 JavaScript 中，"this" 是一个特殊关键字，它用于引用当前执行上下文中的对象。理解 "this" 的工作原理对于编写复杂的 JavaScript 代码至关重要，因为它可以影响函数的行为，特别是在对象和事件处理程序中。以下是 "this" 的工作原理的关键概念：
 
@@ -128,7 +128,7 @@ obj.sayName();
 
 理解 "this" 的工作原理对于正确编写 JavaScript 代码非常重要，因为它可以影响函数的行为和数据的访问。在不同的上下文中，"this" 的含义可能不同，因此开发人员需要谨慎使用，以确保代码的正确性。
 
-## 原型继承 (Prototypal Inheritance) - ChartAI3.5
+## 原型继承 (Prototypal Inheritance)
 
 原型继承是 JavaScript 中一种重要的面向对象编程概念，它允许对象通过继承其他对象的属性和方法来创建层次结构。这种继承方式依赖于对象的原型链，让一个对象能够访问另一个对象的属性和方法，从而实现代码的重用和抽象。
 
@@ -171,7 +171,7 @@ console.log(Object.getPrototypeOf(Object.prototype) === null); // true
 
 原型继承是 JavaScript 中实现对象复用和继承的核心机制，它允许开发人员创建可维护和扩展的代码，实现了面向对象编程的基本概念。
 
-## AMD vs. CommonJS - ChartAI3.5
+## AMD vs. CommonJS
 
 AMD（异步模块定义）和 CommonJS 是两种 JavaScript 模块化系统，它们都用于组织和管理 JavaScript 代码，但在一些方面有不同的特点。下面将比较它们的主要区别和使用场景：
 
@@ -240,7 +240,7 @@ require(['math'], function(math) {
 
 总的来说，AMD 和 CommonJS 都有各自的优点和适用场景，你应该根据具体的项目需求和环境来选择适合的模块规范。
 
-## 为什么这段代码不是 IIFE - ChartAI3.5
+## 为什么这段代码不是 IIFE
 
 下面这段代码 `function foo() { }();` 不是一个 IIFE（立即调用的函数表达式），原因是它在函数声明后没有立即调用，而是在函数声明之后使用了函数调用运算符 `()`。JavaScript 引擎在解释这段代码时会引发语法错误。
 
@@ -264,7 +264,7 @@ require(['math'], function(math) {
 
 这两种方式都可以将代码转变为 IIFE，允许在函数声明后立即调用函数。 IIFE 在许多情况下都非常有用，因为它们创建了一个独立的作用域，可以用于封装变量，避免全局命名冲突，以及执行一些初始化操作。
 
-## 变量的区别和检测 - ChartAI3.5
+## 变量的区别和检测
 
 在 JavaScript 中，`null`，`undefined` 和 "undeclared"（未声明） 是不同的概念，它们具有不同的含义和用途。下面是它们的区别以及如何检测它们的方法：
 
@@ -314,7 +314,7 @@ try {
 
 总结来说，`null` 用于表示空值，`undefined` 用于表示未赋值的变量，而 "undeclared" 表示变量根本没有被声明。检测它们的方法通常是使用 `===` 运算符来比较值，或者使用 `try...catch` 来捕获异常。
 
-## 闭包 (Closure) - ChartAI3.5
+## 闭包 (Closure)
 
 ### 什么是闭包？
 
@@ -361,7 +361,7 @@ counter(); // 输出 2
 
 在这个示例中，`createCounter` 函数返回了内部的 `increment` 函数，该函数保持对外部作用域中的 `count` 变量的引用，形成了一个闭包。这使我们能够创建一个计数器，保持状态并在每次调用时递增。
 
-## 匿名函数的典型用例 - ChartAI3.5
+## 匿名函数的典型用例
 
 匿名函数在 JavaScript 中有多种用途，其中一些典型用例包括：
 
@@ -399,7 +399,7 @@ counter(); // 输出 2
    });
    ```
 
-## 代码组织 - 模块模式 vs. 经典继承 - ChartAI3.5
+## 代码组织 - 模块模式 vs. 经典继承
 
 代码组织方式取决于项目需求和个人偏好。通常，以下两种方式用于不同目的：
 
@@ -437,7 +437,7 @@ counter(); // 输出 2
    Dog.prototype.constructor = Dog;
    ```
 
-## JavaScript 宿主对象和原生对象的区别 - ChartAI3.5
+## JavaScript 宿主对象和原生对象的区别
 
 JavaScript 中的对象可以分为两类：宿主对象（Host Objects）和原生对象（Native Objects）。
 
@@ -457,7 +457,7 @@ JavaScript 中的对象可以分为两类：宿主对象（Host Objects）和原
 
 区别在于宿主对象是由运行时环境提供的，具体行为可能因环境而异，而原生对象是 JavaScript 语言的一部分，行为在所有环境中都一致。
 
-## JavaScript 中的函数和 .call/.apply/.bind - ChartAI3.5
+## JavaScript 中的函数和 .call/.apply/.bind
 
 ### 区分 `function Person() {}`、`var person = Person()` 和 `var person = new Person()`
 
@@ -513,7 +513,7 @@ greetPerson(); // 输出 'Hi Bob'
 
 `bind` 通常用于创建具有确定执行上下文的函数，例如事件处理程序或回调函数。这有助于确保函数在执行时具有正确的上下文，而不会受到外部因素的影响。
 
-## 使用 `document.write()` - ChartAI3.5
+## 使用 `document.write()`
 
 `document.write()` 是 JavaScript 中的一个函数，通常用于将文本或 HTML 写入到文档中。然而，它在现代 web 开发中的使用非常有限，通常在以下情况下可能会使用它：
 
@@ -531,7 +531,7 @@ greetPerson(); // 输出 'Hi Bob'
 
 请注意，`document.write()` 有一些限制和潜在问题。在现代 web 开发中，通常更推荐使用 DOM 操作、innerHTML 属性或其他技术来操作页面内容，以避免潜在的问题，如覆盖整个文档。
 
-## 浏览器特性检测、特性推断和浏览器 UA 字符串嗅探的区别 - ChartAI3.5
+## 浏览器特性检测、特性推断和浏览器 UA 字符串嗅探的区别
 
 这三种技术都用于检测浏览器的能力，但它们有不同的实现方式和目的：
 
@@ -561,7 +561,7 @@ greetPerson(); // 输出 'Hi Bob'
 
 通常，浏览器特性检测是首选的方法，因为它更可靠，能够准确检测浏览器的功能，而不依赖于浏览器的名称或版本。这有助于确保代码在多种浏览器和平台上正确运行。
 
-## Ajax 的工作原理 - ChartAI3.5
+## Ajax 的工作原理
 
 Ajax（Asynchronous JavaScript and XML）是一种用于在不重新加载整个网页的情况下从服务器异步请求数据的技术。以下是 Ajax 的工作原理：
 
@@ -604,7 +604,7 @@ Ajax（Asynchronous JavaScript and XML）是一种用于在不重新加载整个
 
 Ajax 允许网页与服务器进行异步通信，以获取数据或执行操作，而不会中断用户的浏览体验。这使得网页可以实现动态加载数据、实时更新和交互性。常见的 Ajax 库和框架，如 jQuery 和 Axios，简化了 Ajax 请求的处理。
 
-## Ajax 的优劣 - ChartAI3.5
+## Ajax 的优劣
 
 ### 优势
 
@@ -630,7 +630,7 @@ Ajax 允许网页与服务器进行异步通信，以获取数据或执行操作
 
 5. **兼容性**：不同浏览器对于 Ajax 和相关 API 的支持程度不同，可能需要额外的工作来处理兼容性问题。
 
-## JSONP 的工作原理和不是真正的 Ajax - ChartAI3.5
+## JSONP 的工作原理和不是真正的 Ajax
 
 ### JSONP 的工作原理
 
@@ -658,7 +658,7 @@ JSONP 的工作原理虽然允许从不同域的服务器获取数据，但它�
 
 尽管 JSONP 具有一些限制，但它是早期跨域数据请求的一种解决方案，它通常在不支持 CORS 的环境中使用。然而，现代 web 开发更倾向于使用 CORS、代理服务器或其他安全的跨域解决方案，以替代 JSONP。
 
-## JavaScript 模板系统 - ChartAI3.5
+## JavaScript 模板系统
 
 ### 使用 JavaScript 模板系统
 
@@ -674,7 +674,7 @@ JavaScript 模板系统是一种用于生成动态 HTML 内容的工具，它通
 
 5. **React**：React 是另一个流行的 JavaScript 框架，它使用 JSX 语法来创建组件，其中包括模板内容。
 
-## 变量声明提升 (Hoisting) - ChartAI3.5
+## 变量声明提升 (Hoisting)
 
 变量声明提升（Hoisting）是 JavaScript 中的一个概念，它指的是在代码执行阶段，变量和函数声明会被提升到它们所在作用域的顶部。这意味着在声明之前可以引用变量，但变量的赋值操作会保留在原始位置。
 
@@ -707,7 +707,7 @@ var sayHi = function() {
 
 在这个示例中，`sayHi` 变量被提升，但由于它是一个函数表达式，赋值操作保留在原始位置，因此调用 `sayHi` 时会引发错误。
 
-## 事件冒泡机制 (Event Bubbling) - ChartAI3.5
+## 事件冒泡机制 (Event Bubbling)
 
 事件冒泡是指在 DOM 结构中，当一个元素上触发了特定事件（如点击事件），事件将从最具体的元素（最内部的元素）开始，然后逐级向上传播到最不具体的元素（最外部的元素）。这使得可以在一个元素上捕获事件，并在它的祖先元素上处理它。
 
@@ -739,7 +739,7 @@ document.getElementById("inner").addEventListener("click", function() {
 
 在这个示例中，如果点击按钮，将会触发 "Button clicked"、"Middle div clicked" 和 "Outer div clicked" 的日志，因为事件冒泡导致它们在各个元素上依次执行。
 
-## "attribute" 和 "property" 的区别 - ChartAI3.5
+## "attribute" 和 "property" 的区别
 
 在 JavaScript 中，有两个术语：“attribute” 和 “property”，它们通常用于描述 HTML 元素的特性和属性。
 
@@ -767,7 +767,7 @@ console.log(element2.id); // 输出 "newId"，因为 Propserty 被更新
 
 需要注意的是，并非所有 HTML 特性都有对应的属性，而且不同浏览器的处理方式也有所不同。因此，在编写 JavaScript 时，通常需要注意 Attributes 和 Properties 之间的区别。
 
-## 扩展 JavaScript 内置对象的问题 - ChartAI3.5
+## 扩展 JavaScript 内置对象的问题
 
 扩展 JavaScript 内置对象（如 `Array`、`String`、`Object` 等）通常被认为是不好的做法，因为它可能引发以下问题：
 
@@ -781,7 +781,7 @@ console.log(element2.id); // 输出 "newId"，因为 Propserty 被更新
 
 代替扩展内置对象，推荐的做法是创建自定义的工具函数或类，以避免这些潜在问题，并将功能封装在自己的命名空间中。
 
-## document load 和 document DOMContentLoaded 事件的区别 - ChartAI3.5
+## document load 和 document DOMContentLoaded 事件的区别
 
 `document load` 和 `document DOMContentLoaded` 是两个用于监听页面加载事件的事件。
 
@@ -803,7 +803,7 @@ window.addEventListener("load", function() {
 
 通常，如果你需要在页面加载时执行一些初始化操作，`DOMContentLoaded` 事件是一个更好的选择，因为它会更早触发，而不需要等待所有资源的加载。如果你需要确保所有资源都已加载，可以使用 `load` 事件。选择事件取决于你的需求。
 
-## == 和 === 的区别 - ChartAI3.5
+## == 和 === 的区别
 
 `==` 和 `===` 是 JavaScript 中的两种比较运算符，用于比较两个值的相等性。它们之间的主要区别如下：
 
@@ -825,7 +825,7 @@ window.addEventListener("load", function() {
 
 通常建议使用 `===` 进行比较，因为它更严格，避免了类型转换带来的潜在问题。使用 `==` 时，需要非常小心，确保你理解类型转换的规则，以避免出现意外的行为。
 
-## JavaScript 的同源策略 (Same-Origin Policy) - ChartAI3.5
+## JavaScript 的同源策略 (Same-Origin Policy)
 
 同源策略（Same-Origin Policy）是一项浏览器安全策略，用于限制在浏览器中运行的 JavaScript 对不同源（origin）的资源的访问。一个“源”通常由协议、主机和端口组成。同源策略的目的是保护用户的隐私和安全，防止恶意网站访问其他网站的数据。
 
@@ -857,7 +857,7 @@ window.addEventListener("load", function() {
 
 同源策略是浏览器安全的基本构建块之一，它有助于保护用户的隐私和安全。然而，在跨域数据交换方面，它也需要开发人员采取额外的步骤来允许必要的数据交流。
 
-## 自定义 JavaScript 数组方法 - ChartAI3.5
+## 自定义 JavaScript 数组方法
 
 要实现给定的功能，你可以通过扩展 JavaScript 数组的原型（不推荐）或创建一个独立的函数来实现自定义的 `duplicator` 方法。以下是两种方法的示例：
 
@@ -893,7 +893,7 @@ console.log(duplicatedArray); // [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
 
 通常，最好避免扩展内置对象的原型，以减少潜在的问题。相反，创建独立函数可以更好地控制功能的作用范围。
 
-## 什么是三元表达式 (Ternary expression) - ChartAI3.5
+## 什么是三元表达式 (Ternary expression)
 
 三元表达式是一种条件表达式，通常由三部分组成，用于根据条件的真假来返回不同的值。它通常采用以下语法：
 
@@ -903,7 +903,7 @@ condition ? expression1 : expression2
 
 其中，`condition` 是一个布尔表达式，如果为真，将返回 `expression1` 的值，否则返回 `expression2` 的值。
 
-## 什么是 "use strict"; ? 使用它的好处和坏处分别是什么？ - ChartAI3.5
+## 什么是 "use strict"; ? 使用它的好处和坏处分别是什么？
 
 `"use strict";` 是 JavaScript 中的严格模式声明。它的作用是让 JavaScript 引擎执行更严格的代码检查，从而减少一些不安全或不规范的代码写法。好处包括：
 
@@ -916,7 +916,7 @@ condition ? expression1 : expression2
 - 不兼容性：某些旧的浏览器不支持严格模式，因此可能需要额外处理兼容性问题。
 - 代码更加严格：可能需要修改一些已有的代码以满足严格模式的要求。
 
-## 实现FizzBuzz - ChartAI3.5
+## 实现FizzBuzz
 
 以下是一个遍历至 100 的 JavaScript for 循环，根据条件输出 "fizz"、"buzz" 或 "fizzbuzz"。
 
@@ -934,7 +934,7 @@ for (let i = 1; i <= 100; i++) {
 }
 ```
 
-## 为何通常会认为保留网站现有的全局作用域不去改变它，是较好的选择？ - ChartAI3.5
+## 为何通常会认为保留网站现有的全局作用域不去改变它，是较好的选择？
 
 保留网站现有的全局作用域是一个良好的选择，因为：
 
@@ -948,7 +948,7 @@ for (let i = 1; i <= 100; i++) {
 
 通常，更好的做法是使用模块化的方法，将代码封装在模块或命名空间中，以减少全局作用域的污染和冲突。
 
-## 为何你会使用 load 之类的事件？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？ - ChartAI3.5
+## 为何你会使用 load 之类的事件？此事件有缺点吗？你是否知道其他替代品，以及为何使用它们？
 
 `load` 事件和类似的事件（如 `DOMContentLoaded`）通常用于处理页面的加载和准备完成事件。它们的优点包括：
 
@@ -976,7 +976,7 @@ for (let i = 1; i <= 100; i++) {
 
 代前端框架和工具提供了更灵活的加载和初始化方式，可以根据需要异步加载和执行代码。
 
-## 解释什么是单页应用 (single page app)，以及如何使其对搜索引擎友好 (SEO-friendly) - ChartAI3.5
+## 解释什么是单页应用 (single page app)，以及如何使其对搜索引擎友好 (SEO-friendly)
 
 **单页应用（Single Page Application，SPA）**是一种Web应用程序的设计方式，其中页面内容通常在加载初始页面后不再完全刷新。相反，SPA使用JavaScript来动态地加载和更新页面内容，通常通过AJAX请求从服务器获取数据，然后使用前端路由来切换视图。这导致更快的页面切换和更流畅的用户体验。
 
@@ -1000,7 +1000,7 @@ for (let i = 1; i <= 100; i++) {
 
 SPA可以通过结合上述策略来实现对搜索引擎的友好性，使其不仅提供出色的用户体验，同时也能被搜索引擎索引和排名。
 
-## 你使用过 Promises 及其 polyfills 吗? 请写出 Promise 的基本用法（ES6） - ChartAI3.5
+## 你使用过 Promises 及其 polyfills 吗? 请写出 Promise 的基本用法（ES6）
 
 我了解 Promises 和它们的基本用法。Promises 是用于处理异步操作的 JavaScript 对象。以下是 Promise 的基本用法（ES6）：
 
@@ -1025,7 +1025,7 @@ myPromise
   });
 ```
 
-## 使用 Promises 而非回调 (callbacks) 优缺点是什么？ - ChartAI3.5
+## 使用 Promises 而非回调 (callbacks) 优缺点是什么？
 
 使用 Promises 相对于回调函数有以下优点和缺点：
 
@@ -1045,7 +1045,7 @@ myPromise
 
 - **不支持某些老旧环境**：在某些老旧的浏览器或环境中，可能不原生支持 Promises，需要使用 polyfills 或其他解决方案。
 
-## 使用一种可以编译成 JavaScript 的语言来写 JavaScript 代码有哪些优缺点？ - ChartAI3.5
+## 使用一种可以编译成 JavaScript 的语言来写 JavaScript 代码有哪些优缺点？
 
 使用可以编译成 JavaScript 的语言（如 TypeScript、Babel 编译的 JSX）有以下优点和缺点：
 
@@ -1069,7 +1069,7 @@ myPromise
 
 - **依赖于生态系统**：这些语言的生态系统可能不如原生 JavaScript 生态系统丰富，可能需要寻找第三方库来弥补缺失。
 
-## 你使用哪些工具和技术来调试 JavaScript 代码？ - ChartAI3.5
+## 你使用哪些工具和技术来调试 JavaScript 代码？
 
 调试 JavaScript 代码通常使用以下工具和技术：
 
@@ -1089,7 +1089,7 @@ myPromise
 
 - **错误报告服务**：使用错误报告服务如 Sentry 或 Rollbar 来监控生产环境中的错误并提供调试信息。
 
-## 你会使用怎样的语言结构来遍历对象属性（object properties）和数组内容？ - ChartAI3.5
+## 你会使用怎样的语言结构来遍历对象属性（object properties）和数组内容？
 
 ### 遍历对象属性（Object Properties）
 
@@ -1149,7 +1149,7 @@ myArray.forEach((element) => {
 
 这些语言结构可用于遍历对象属性和数组内容，具体选择取决于使用场景和个人偏好。
 
-## 可变 (Mutable) 和不变 (Immutable) 对象的区别 - ChartAI3.5
+## 可变 (Mutable) 和不变 (Immutable) 对象的区别
 
 可变对象指的是其内容可以在创建后被修改，而不变对象则在创建后不能被更改。以下是它们的区别：
 
@@ -1197,7 +1197,7 @@ console.log(newObject); // 输出 { a: 1, b: 2, c: 3 }
 
 这种方式创建了一个新的对象 `newObject`，原对象 `originalObject` 保持不变。
 
-## 同步 (Synchronous) 和异步 (Asynchronous) 函数的区别 - ChartAI3.5
+## 同步 (Synchronous) 和异步 (Asynchronous) 函数的区别
 
 **同步函数**是按照程序顺序执行的函数，它会阻塞程序的执行，直到它的操作完成。在同步函数执行期间，程序通常不能执行其他任务。
 
@@ -1244,3 +1244,519 @@ var bar = function() {
 ```
 
 因此，函数声明更适用于需要在函数之前调用的情况，而函数表达式更适用于需要将函数分配给变量或作为参数传递的情况。
+
+## 如何处理二进制的场景
+
+当然可以，下面为每项提供了 JavaScript 代码示例：
+
+1. **文件上传和下载**
+   - 上传：
+
+     ```javascript
+     const input = document.querySelector('input[type="file"]');
+     input.addEventListener('change', (e) => {
+       const file = e.target.files[0];
+       const reader = new FileReader();
+       reader.readAsArrayBuffer(file);
+       reader.onload = function() {
+         // Do something with the buffer: reader.result
+       };
+     });
+     ```
+
+   - 下载：
+
+     ```javascript
+     fetch('https://example.com/somefile.zip')
+       .then(response => response.blob())
+       .then(blob => {
+         const a = document.createElement('a');
+         a.href = URL.createObjectURL(blob);
+         a.download = 'somefile.zip';
+         a.click();
+       });
+     ```
+
+2. **图像操作**
+
+   ```javascript
+   const canvas = document.getElementById('myCanvas');
+   const ctx = canvas.getContext('2d');
+   // ... draw something on the canvas ...
+   canvas.toBlob((blob) => {
+     const img = new Image();
+     img.src = URL.createObjectURL(blob);
+     document.body.appendChild(img);
+   });
+   ```
+
+   ```javascript
+    // 选择图片后，本地预览图片
+    async handleUpload(file: HTMLInputElement) {
+      const reader = new FileReader()
+      reader.readAsDataURL(file.file)
+
+      reader.onload = (e) => {
+        this.fileList = [{ name: file.file.name, src: e.target.result }]
+      }
+
+      reader.onerror = () => {
+        console.error('加载错误')
+      }
+   }
+   ```
+
+3. **音视频处理**
+   *这是一个基本的音频捕获示例：*
+
+   ```javascript
+   navigator.mediaDevices.getUserMedia({ audio: true })
+     .then(stream => {
+       const recorder = new MediaRecorder(stream);
+       recorder.ondataavailable = (event) => {
+         const audioBlob = event.data;
+         // Do something with the audio blob
+       };
+       recorder.start();
+       setTimeout(() => recorder.stop(), 5000);  // Record for 5 seconds
+     });
+   ```
+
+4. **WebSocket 和 Fetch API 中的二进制数据传输**
+   - WebSocket:
+
+     ```javascript
+     const ws = new WebSocket('ws://example.com/socket');
+     ws.binaryType = 'arraybuffer';
+     ws.onmessage = (event) => {
+       const buffer = event.data;
+       // Process the buffer
+     };
+     ```
+
+   - Fetch:
+
+     ```javascript
+     fetch('https://example.com/binarydata')
+       .then(response => response.arrayBuffer())
+       .then(buffer => {
+         // Process the buffer
+       });
+     ```
+
+5. **处理压缩文件** (*使用 `JSZip` 库*)
+
+   ```javascript
+   fetch('https://example.com/archive.zip')
+     .then(response => response.arrayBuffer())
+     .then(buffer => {
+       const zip = new JSZip();
+       return zip.loadAsync(buffer);
+     })
+     .then(zipData => {
+       // Process the decompressed files
+     });
+   ```
+
+6. **使用 WebAssembly**
+   *加载和运行一个 WebAssembly 模块：*
+
+   ```javascript
+   fetch('module.wasm')
+     .then(response => response.arrayBuffer())
+     .then(bytes => WebAssembly.instantiate(bytes))
+     .then(result => {
+       const exportedFunction = result.instance.exports.myFunction;
+       exportedFunction();
+     });
+   ```
+
+7. **TypedArray 和 ArrayBuffer**
+
+   ```javascript
+   const buffer = new ArrayBuffer(8);
+   const view = new Uint32Array(buffer);
+   view[0] = 123456789;
+   console.log(view[0]);  // Outputs: 123456789
+   ```
+
+8. **Crypto API**
+   *计算文本的 SHA-256 哈希：*
+
+   ```javascript
+   const text = 'Hello, World!';
+   const encoder = new TextEncoder();
+   const data = encoder.encode(text);
+   crypto.subtle.digest('SHA-256', data)
+     .then(hashBuffer => {
+       const hashArray = Array.from(new Uint8Array(hashBuffer));
+       const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+       console.log(hashHex);
+     });
+   ```
+
+这些代码示例提供了基本的操作和概念，但在实际应用中可能需要进一步的修改和完善。
+
+## 什么是 Iterable 对象，与 Array 有什么区别
+
+在 JavaScript 中，一个对象被认为是**可迭代的 (Iterable)**，如果它实现了一个名为 `Symbol.iterator` 的方法。该方法返回一个迭代器，迭代器是一个对象，它提供了一个 `next` 方法，这个方法返回下一个迭代结果。每一个迭代结果都有两个属性：`value`（表示当前的值）和 `done`（一个布尔值，表示是否已经完成迭代）。
+
+### Iterable 对象的示例
+
+1. **Arrays**
+2. **Strings**
+3. **Maps**
+4. **Sets**
+5. **Typed Arrays (例如 Uint8Array)**
+6. **Arguments (函数中的 arguments 对象)**
+7. **NodeList (通常是从 `document.querySelectorAll` 返回的)**
+
+此外，您可以通过为对象实现 `Symbol.iterator` 方法，使任何对象变得可迭代。
+
+### 示例：使对象可迭代
+
+```javascript
+const iterableObject = {
+  from: 1,
+  to: 5,
+  
+  [Symbol.iterator]() {
+    let current = this.from;
+    const last = this.to;
+    
+    return {
+      next() {
+        if (current <= last) {
+          return {
+            value: current++,
+            done: false
+          };
+        } else {
+          return { done: true };
+        }
+      }
+    };
+  }
+};
+
+for (let value of iterableObject) {
+  console.log(value);  // 1, 2, 3, 4, 5
+}
+```
+
+### Iterable 和 Array 的区别
+
+1. **定义**：所有的数组都是可迭代的，但并非所有的可迭代对象都是数组。如上面的示例所示，一个简单的对象也可以被定义为可迭代的，而它并不是数组。
+
+2. **方法**：数组有大量的内置方法，如 `push`, `pop`, `shift`, `unshift`, `splice`, `map`, `filter` 等。而一个普通的可迭代对象不会有这些方法，除非它明确地继承自数组或添加了这些方法。
+
+3. **索引和长度**：数组有索引和长度（`.length` 属性），而一个可迭代对象不一定要有。
+
+4. **通用性**：一些内置的 JavaScript 功能，如 `spread` 语法 (`...iterable`)，需要可迭代对象。这意味着您可以使用数组，但也可以使用任何其他可迭代对象。
+
+5. **效率和用途**：数组是为了存储和管理一组有序的数据而设计的，而可迭代对象可能是为了实现特定的迭代行为而设计的。例如，一个无限序列生成器可能是一个可迭代对象，但它不可能是一个数组，因为数组需要有固定的长度。
+
+总的来说，数组是 JavaScript 中最常见的可迭代对象，但 "可迭代性" 是一个更广泛的概念，不仅限于数组。
+
+## Map 与 WeakMap 有何区别
+
+`Map` 和 `WeakMap` 都是 JavaScript 中的键值对集合，但它们之间存在一些关键差异。以下是这两者的主要区别：
+
+1. **键的类型**：
+   - `Map`：可以容纳任何类型的键，无论是原始值（如 `number`, `string`, `symbol`）还是对象。
+   - `WeakMap`：仅接受对象作为键。原始值不能作为 `WeakMap` 的键。
+
+2. **引用强度**：
+   - `Map`：持有键的**强引用**。这意味着只要 `Map` 存在并包含一个键，该键就不会被垃圾收集。
+   - `WeakMap`：持有键的**弱引用**。如果没有其他地方引用 `WeakMap` 的键，这些键/值对会被自动垃圾收集。这使得 `WeakMap` 特别适用于关联额外信息到对象上，而不妨碍它们被垃圾回收。
+
+3. **可枚举性**：
+   - `Map`：可以遍历其键和值。提供了方法如 `keys()`, `values()`, 和 `entries()` 以及 `forEach` 方法。
+   - `WeakMap`：不可遍历。由于其键是弱引用，并且可以随时被垃圾回收，因此没有方法可以获得所有的键或值。
+
+4. **用例**：
+   - `Map`：适用于大多数常规的键值对存储需求。
+   - `WeakMap`：特别有用于为对象关联额外的信息，而不妨碍这些对象被垃圾回收。例如，它可以作为一个私有数据存储或关联元数据到对象，而不需要扩展对象本身。
+
+5. **方法和属性**：
+   - `Map`：有 `size` 属性以及一系列方法如 `set()`, `get()`, `delete()`, `has()`, `clear()`。
+   - `WeakMap`：没有 `size` 属性，并且仅有 `set()`, `get()`, `delete()`, 和 `has()` 方法。
+
+6. **持续时间**：
+   - `Map`：如果不被手动删除，其键/值对会持续存在。
+   - `WeakMap`：其键/值对可能会在任何时候被自动删除，这取决于它们是否还被其他地方引用。
+
+总之，`Map` 和 `WeakMap` 都是键值对集合，但它们的用途、特性和行为在许多方面都有所不同。你应该根据具体的需求和场景来选择使用哪一个。
+
+## 简述 Object.defineProperty
+
+`Object.defineProperty()` 是 JavaScript 中的一个方法，它允许你直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象。这个方法为我们提供了一个详细的方式来配置属性的特性，比如是否可写、是否可枚举、是否可配置等。
+
+### 使用语法
+
+```javascript
+Object.defineProperty(obj, prop, descriptor);
+```
+
+- **obj**：需要定义属性的对象。
+- **prop**：要定义或修改的属性名称。
+- **descriptor**：一个描述符对象，描述了该属性的特性。
+
+### 描述符对象（`descriptor`）可以包含以下属性
+
+1. **value**：该属性的值，默认为 `undefined`。
+2. **writable**：该属性的值是否可以被重新赋值。默认为 `false`。
+3. **enumerable**：该属性是否可以被枚举（例如在 `for...in` 循环或 `Object.keys` 中显示）。默认为 `false`。
+4. **configurable**：该属性是否可以被删除或是否可以再次修改其特性。默认为 `false`。
+5. **get**：一个没有参数的函数，返回属性的值。
+6. **set**：一个有一个参数的函数，将属性的值设置为该参数。
+
+需要注意的是，`value` 或 `writable` 与 `get` 或 `set` 之间是互斥的，这意味着在描述符中不应该同时设置它们。
+
+### 示例
+
+1. **添加一个简单的属性**：
+
+```javascript
+const obj = {};
+Object.defineProperty(obj, 'key', {
+  value: 'value',
+  writable: true,
+  enumerable: true,
+  configurable: true
+});
+console.log(obj.key);  // 输出: value
+```
+
+2. **使用 getter 和 setter**：
+
+```javascript
+const obj = {
+  _privateValue: 10
+};
+
+Object.defineProperty(obj, 'value', {
+  get() {
+    return this._privateValue;
+  },
+  set(newValue) {
+    this._privateValue = newValue * 2;
+  }
+});
+
+console.log(obj.value);  // 输出: 10
+obj.value = 5;
+console.log(obj.value);  // 输出: 10 (因为setter将实际设置的值乘以2)
+```
+
+`Object.defineProperty()` 提供了对对象属性更细粒度的控制，使得我们可以创建只读属性、定义特定行为的 getter 和 setter，或将属性隐藏起来使其不可枚举等。
+
+## Object.keys 与 Object.getOwnPropertyNames() 有何区别
+
+`Object.keys()` 和 `Object.getOwnPropertyNames()` 都是 JavaScript 中用于获取对象属性名称的方法，但它们在哪些属性名称被返回上有所不同。
+
+1. **返回的属性类型**：
+   - `Object.keys()`: 返回一个给定对象自身的**所有可枚举属性**的名称的数组。
+   - `Object.getOwnPropertyNames()`: 返回一个给定对象自身的**所有属性**（无论是否可枚举）的名称的数组。
+
+2. **示例**：
+考虑以下的对象：
+
+```javascript
+const obj = {};
+Object.defineProperty(obj, 'nonEnumerableProp', {
+  value: 'This is non-enumerable',
+  enumerable: false
+});
+obj.enumerableProp = 'This is enumerable';
+```
+
+在上述代码中，`nonEnumerableProp` 是一个不可枚举的属性，而 `enumerableProp` 是一个可枚举的属性。
+
+使用 `Object.keys()` 和 `Object.getOwnPropertyNames()` 分别获取属性：
+
+```javascript
+console.log(Object.keys(obj));  // 输出: ['enumerableProp']
+
+console.log(Object.getOwnPropertyNames(obj));  // 输出: ['nonEnumerableProp', 'enumerableProp']
+```
+
+从示例中可以看出，`Object.keys()` 只返回了可枚举属性，而 `Object.getOwnPropertyNames()` 返回了对象的所有自身属性，不论它们是否可枚举。
+
+3. **使用场景**：
+   - 当你只关心对象的可枚举属性时，使用 `Object.keys()`。
+   - 当你想获取对象的所有自身属性，不论它们是否可枚举，使用 `Object.getOwnPropertyNames()`。
+
+需要注意的是，两者都只返回对象**自身**的属性，不包括原型链上的属性。
+
+## Number 中最大数、最大安全整数、EPSILON 都是多少，原理是什么
+
+[双精度浮点数](https://www.wikiwand.com/zh-hans/%E9%9B%99%E7%B2%BE%E5%BA%A6%E6%B5%AE%E9%BB%9E%E6%95%B8)  [IEEE 754](https://www.wikiwand.com/zh-hans/IEEE_754)
+
+在 JavaScript 中，`Number` 提供了几个有关数值限制的常量。以下是这些常量及其值：
+
+1. **`Number.MAX_VALUE`**:
+   - 值: `1.7976931348623157e+308`
+   - 描述: 这是 JavaScript 中可以表示的最大正数。超过这个值的数字会被表示为 `Infinity`.
+
+2. **`Number.MAX_SAFE_INTEGER`**:
+   - 值: `9007199254740991` (或 `2^53 - 1`)
+   - 描述: JavaScript 中的数字遵循 IEEE 754 双精度浮点格式。这意味着可以安全地表示的整数范围是 `-2^53 + 1` 到 `2^53 - 1`。超出此范围的整数可能无法精确表示。
+
+3. **`Number.EPSILON`**:
+   - 值: `2.220446049250313e-16`
+   - 描述: 这是 JavaScript 中可以表示的最小差异，即两个可表示的数之间的差异。它用于浮点计算精度问题，帮助判断两个数字是否"足够接近"被视为相等。
+
+### 原理
+
+1. **IEEE 754 双精度浮点格式**: JavaScript 中的所有数字都是根据 IEEE 754 双精度浮点格式存储的。这种格式使用 64 位来表示数字，其中 1 位用于符号，11 位用于指数，52 位用于小数部分 (又称为尾数或分数)。这种存储方式导致了某些数字无法精确表示，尤其是非常大或非常小的数字。
+
+2. **安全整数范围**: 由于尾数部分有 52 位，最大的尾数是 `2^52`。但是，整数 `2^52` 和 `2^53` 都可以精确表示，因为指数部分可以适当地调整以补偿尾数的位数。但是，当您尝试表示 `2^53 + 1` 时，会超出可以精确表示的范围，因为没有足够的尾数位来区分 `2^53` 和 `2^53 + 1`。
+
+3. **浮点精度**: 由于数字是使用固定数量的位来表示的，因此不能精确表示所有的小数。例如，0.1 和 0.2 在二进制中都是无限小数，因此它们的和（0.3）不能精确表示。`Number.EPSILON` 用于处理此类浮点计算精度问题，帮助判断两个浮点数是否"足够接近"被视为相等。
+
+理解这些限制和背后的原理对于避免数字相关的错误和意外行为是很重要的。
+
+## JS 如何检测到对象中有循环引用
+
+在 JavaScript 中，检测对象中的循环引用是一个常见的问题，特别是在处理复杂的数据结构或序列化对象时（例如，使用 JSON.stringify）。以下是如何检测循环引用的方法：
+
+### 使用一个 Set 或 Array 跟踪访问过的对象
+
+这种方法的基本思路是递归地遍历对象及其所有子属性。在遍历过程中，将每个遇到的对象添加到一个 `Set` 或 `Array` 中。在检查新的对象前，首先检查它是否已经存在于这个集合中。如果是，则存在循环引用。
+
+以下是一个示例函数：
+
+```javascript
+function hasCircularReference(obj) {
+  const visitedObjects = new Set();
+
+  function recursiveCheck(currentObj) {
+    if (visitedObjects.has(currentObj)) {
+      return true; // 循环引用已经被发现
+    }
+
+    visitedObjects.add(currentObj);
+
+    for (const key in currentObj) {
+      if (currentObj.hasOwnProperty(key) && typeof currentObj[key] === 'object' && currentObj[key] !== null) {
+        if (recursiveCheck(currentObj[key])) {
+          return true; // 子属性中存在循环引用
+        }
+      }
+    }
+
+    return false;
+  }
+
+  return recursiveCheck(obj);
+}
+
+const obj = {};
+obj.self = obj;
+console.log(hasCircularReference(obj));  // 输出: true
+```
+
+### 利用 JSON.stringify 的 replacer
+
+`JSON.stringify` 接受一个名为 `replacer` 的第二个参数，它可以用来转换或筛选对象的属性。当尝试转换具有循环引用的对象时，`JSON.stringify` 会抛出错误。我们可以利用这一点来检测循环引用：
+
+```javascript
+function hasCircularReference(obj) {
+  try {
+    JSON.stringify(obj, function(key, value) {
+      if (typeof value === 'object' && value !== null) {
+        if (this[key] === obj) {
+          throw new Error('Circular reference detected');
+        }
+      }
+      return value;
+    });
+  } catch (error) {
+    if (error.message === 'Circular reference detected') {
+      return true;
+    }
+    throw error;
+  }
+  return false;
+}
+
+const obj = {};
+obj.self = obj;
+console.log(hasCircularReference(obj));  // 输出: true
+```
+
+两种方法都能有效检测循环引用，但第一种方法提供了更多的灵活性，可以更容易地适应各种复杂的数据结构。
+
+### 使用场景
+
+在实际的应用程序和系统设计中，循环引用并不总是一个错误或不良实践。在某些上下文中，它们是必要和预期的。以下是循环引用的一些实际使用场景：
+
+1. **图形数据结构**:
+   在图形数据结构中，节点可能互相引用。例如，社交网络中的用户之间可能存在双向的“朋友”关系，其中每个用户都引用其朋友，并被其朋友引用。
+
+2. **双向数据绑定**:
+   在某些前端框架中，如 Angular，模型和视图之间可能存在双向数据绑定。当模型更改时，视图会更新，反之亦然。这种双向的关系可能导致循环引用，尽管框架本身会处理这种情况。
+
+3. **DOM 结构**:
+   DOM 节点中的 `parentNode` 和 `childNodes` 属性是一个循环引用的例子。一个元素的 `childNodes` 包含对其子元素的引用，而子元素的 `parentNode` 又引用该元素。
+
+4. **数据库关系**:
+   在某些数据库模型中，如关系型数据库，表之间可能存在循环引用。例如，一个员工表可能有一个上级ID列，该列引用同一表中的另一行，表示员工的经理。
+
+5. **观察者模式**:
+   在观察者模式中，观察者和主题之间经常存在循环引用。主题持有对其所有观察者的引用，以便在状态更改时通知它们，而观察者也可能持有对主题的引用，以便查询或请求数据。
+
+6. **缓存和对象池**:
+   为了提高性能和资源管理，应用程序可能使用对象池或缓存来回收和重用对象。在这些情况下，对象之间可能存在循环引用，特别是当对象需要知道它们在池或缓存中的状态时。
+
+虽然这些场景在某些上下文中可能使循环引用变得合理和有用，但开发者仍然需要注意确保他们不会导致资源泄漏或其他不良副作用。特别是在那些依赖垃圾收集的环境中，理解和正确管理循环引用是很重要的。
+
+## JS 深克隆时如何处理循环引用
+
+在 JavaScript 中进行深克隆时，处理循环引用是一个关键的挑战。如果不处理循环引用，深克隆操作可能会陷入无限递归，导致堆栈溢出。
+
+为了处理循环引用，您可以采用以下方法：
+
+1. **使用已访问对象的缓存**:
+   在深克隆的过程中，您可以使用一个缓存（如数组或 `Map`）来跟踪已经访问和克隆的对象。每次您尝试克隆一个对象时，都可以检查该对象是否已在缓存中。如果已经在缓存中，说明这是一个循环引用，您可以直接从缓存中获取已克隆的对象，而不是重新开始克隆过程。
+
+  以下是一个简单的示例实现：
+
+  ```javascript
+  function deepClone(obj, cache = new Map()) {
+    // 基本类型或null，直接返回
+    if (obj === null || typeof obj !== 'object') return obj;
+
+    // 检查缓存中是否已经存在该对象的克隆
+    if (cache.has(obj)) return cache.get(obj);
+
+    // 创建一个新的实例，它可以是对象或数组
+    const clone = Array.isArray(obj) ? [] : {};
+
+    // 将原始对象和克隆添加到缓存中
+    cache.set(obj, clone);
+
+    // 克隆对象的每个属性
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        clone[key] = deepClone(obj[key], cache);
+      }
+    }
+
+    return clone;
+  }
+
+  // 示例测试：
+  const obj = { name: "John", friend: null };
+  obj.friend = obj; // 创建循环引用
+  const cloned = deepClone(obj);
+  console.log(cloned); // { name: "John", friend: [Circular] }
+  console.log(cloned.friend === cloned); // true
+  ```
+
+  这种方法确保了即使存在循环引用，克隆过程也不会无限递归，并且结果中的循环引用结构与原始对象保持一致。
+2. **使用第三方库**:
+   有一些第三方库，如 lodash 的 `_.cloneDeep` 方法，已经为您处理了循环引用的问题。如果您的项目中已经使用了这样的库，那么您可以考虑使用它来避免重新实现深克隆逻辑。
+
+总的来说，处理循环引用的关键是在深克隆的过程中跟踪已访问的对象，以确保不会陷入无限的递归循环。

@@ -41,6 +41,7 @@ export default {
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2023-present Evan You'
-    }
+    },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/1442916418/docs/' }]
   }
 }

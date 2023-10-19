@@ -304,6 +304,7 @@ Node.js 是基于 V8 引擎的运行在服务端的 JavaScript 运行环境。�
 ## 介绍节流和防抖原理、区别以及应用
 
 **节流 (Throttle)**：事件触发后，在规定时间内，事件处理函数不能再次被调用。只能在规定时间内执行一次，最早触发调用的那次。
+**代码实现重在开锁关锁** lastCall = now; lastCall = 0。节流可以比作过红绿灯，每等一个红灯时间就可以过一批。
 
 ```JavaScript
 function throttle(func, delay) {
@@ -329,19 +330,18 @@ setInterval(throttledFn, 50);
 ```
 
 **防抖 (Debounce)**：多次触发事件，但事件处理函数只能在最后一次触发后执行。会等待一定的时间，如果在此时间内再次触发，就会重新计时，直到最后一次触发事件才执行。
+**代码实现重在清零** clearTimeout。防抖可以比作等电梯，只要有一个人进来，就需要再等一会儿。业务场景有避免登录按钮多次点击的重复提交。
 
 ```JavaScript
 function debounce(func, delay) {
-  let timeoutId;
+  let timeoutId = 0;
 
   return function (...args) {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
+    timeoutId && clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
       func.apply(this, args);
-      timeoutId = null;
+      timeoutId = 0;
     }, delay);
   };
 }
@@ -1643,3 +1643,68 @@ console.log(generator.next()); // { value: undefined, done: true }
 ```
 
 Generator函数的主要特点是可以在函数内部暂停和恢复执行，可以有效处理异步任务，以及按需生成数据。
+
+## 类数组转化为数组
+
+这在 DOM 中甚为常见，如各种元素检索 API 返回的都是类数组，如 document.getElementsByTagName，document.querySelectorAll 等等。除了 DOM API 中，常见的 function 中的 arguments 也是类数组
+
+```javascript
+Array.from(arrayLike);
+Array.apply(null, arrayLike);
+Array.prototype.concat.apply([], arrayLike);
+```
+
+## Promise.allSettled()
+
+Promise.allSettled() 静态方法将一个 Promise 可迭代对象作为输入，并返回一个单独的 Promise。当所有输入的 Promise 都已敲定时（包括传入空的可迭代对象时），返回的 Promise 将被兑现，并带有描述每个 Promise 结果的对象数组。
+
+### 实现一
+
+接收一个可迭代对象，其中每个成员都是Promise。在所有给定的Promise都已经fulfilled或rejected后返回一个Promise，并带有一个对象数组，每个对象表示对应的Promise结果 相较于Promise.all，后者会在任何一个Promise为rejected时立即结束 简单实现
+
+```javascript
+const myPromiseSettled = (items) => {
+  const onResolved = (value) => ({ status: "fulfilled", value });
+  const onRejected = (reason) => ({ status: "rejected", reason });
+  return Promise.all(
+    items.map((item) => Promise.resolve(item).then(onResolved, onRejected)),
+  );
+};
+```
+
+### 实现二
+
+```javascript
+function allSettled(promises = []) {
+  return new Promise((resolve) => {
+    let count = 0;
+    let values = new Array(promises.length);
+    const collect = (index, status) => (value) => {
+      const prop = status === "fulfilled" ? "value" : "reason";
+      values[index] = { status, [prop]: value };
+      ++count === promises.length && resolve(values);
+    };
+    promises.forEach((promise, i) => {
+      if (isPromise(promise)) {
+        promise.then(collect(i, "fulfilled"), collect(i, "rejected"));
+      } else {
+        collect(i, "fulfilled")(promise);
+      }
+    });
+  });
+}
+```
+
+## 如何创建一个数组大小为100，每个值都为0的数组
+
+```javascript
+// 方法一:
+Array(100).fill(0);
+ 
+// 方法二:
+// 注: 如果直接使用 map，会出现稀疏数组
+Array.from(Array(100), (x) => 0);
+ 
+// 方法二变体:
+Array.from({ length: 100 }, (x) => 0);
+```
