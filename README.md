@@ -10,6 +10,7 @@
 - [network-questions](https://h5bp.org/Front-end-Developer-Interview-Questions/translations/chinese/#network-questions)
 - [面试路线图](https://q.shanyue.tech/roadmap)
 - [JavaScript 进阶问题列表](https://github.com/lydiahallie/javascript-questions)
+- [Learning-notes](https://github.com/li-jia-nan/Learning-notes)
 
 ## 部署
 

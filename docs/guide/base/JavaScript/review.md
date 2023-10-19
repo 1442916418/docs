@@ -551,9 +551,63 @@ for (let i = 0; i < 5; i++) {
 (0.1 * 10 + 0.2 * 10) / 10 == 0.3 // true
 ```
 
-这种方法可以避免由于浮点数精度问题而导致的不精确计算结果。
+```javascript
+function calculate(op, arg1, arg2) {
+  function getDigits(num) {
+    let digits;
+    try {
+      digits = num.toString().split('.')[1].length || 0;
+    } catch {
+      digits = 0;
+    }
+    
+    return digits;
+  }
 
-详细内容可以查看[JS 闭包的文章](http://xieyufei.com/2018/03/07/JS-Decimal-Accuracy.html)。
+  function mul(m1, m2) {
+    let digits = 0;
+    const s1 = m1.toString();
+    const s2 = m2.toString();
+    try {
+      digits += s1.split('.')[1].length;
+    } catch {}
+    try {
+      digits += s2.split('.')[1].length;
+    } catch {}
+
+    return (Number(s1.replace(/\./, '')) * Number(s2.replace(/\./, ''))) / 10 ** digits;
+  }
+
+  let digits1 = getDigits(arg1);
+  let digits2 = getDigits(arg2);
+  let maxDigits = 10 ** Math.max(digits1, digits2);
+
+  switch (op) {
+    case "add":
+      return (mul(arg1, maxDigits) + mul(arg2, maxDigits)) / maxDigits;
+    case "sub":
+      return (mul(arg1, maxDigits) - mul(arg2, maxDigits)) / maxDigits;
+    case "mul":
+      return mul(arg1, arg2);
+    case "div":
+      let int1 = Number(arg1.toString().replace(/\./, ''));
+      let int2 = Number(arg2.toString().replace(/\./, ''));
+      return ((int1 / int2) * 10) ** (digits2 - digits1 || 1);
+    default:
+      throw new Error("Invalid operation specified.");
+  }
+}
+
+// 示例
+console.log(calculate("add", 1.2, 2.3));  // 3.5
+console.log(calculate("sub", 1.2, 0.2));  // 1
+console.log(calculate("mul", 1.2, 2.3));  // 2.76
+console.log(calculate("div", 1.2, 2));    // 0.6
+```
+
+顺便说一下，关于处理精度问题的解决方案，目前市面上已经有了很多较为成熟的库，比如 [`bignumber.js`](https://mikemcl.github.io/bignumber.js/)、[`decimal.js`](http://mikemcl.github.io/decimal.js/)、以及 [`big.js`](http://mikemcl.github.io/big.js/) 等，这些库不仅解决了浮点数的运算精度问题，还支持了大数运算，并且修复了原生 toFixed 结果不准确的问题。我们可以根据自己的需求来选择对应的工具。
+
+最后提醒一下：这玩意儿也就面试的时候写一下，强烈建议业务中还是用现成的库，出了问题不负责
 
 ## 数组的常用方法
 
@@ -1707,4 +1761,50 @@ Array.from(Array(100), (x) => 0);
  
 // 方法二变体:
 Array.from({ length: 100 }, (x) => 0);
+```
+
+## 手写 Array.flat(Infinity)
+
+```javascript
+const isArray = Array.isArray;
+
+const flatDeep = arr => {
+  return arr.reduce((acc, val) => acc.concat(isArray(val) ? flatDeep(val) : val), []);
+};
+
+flatDeep([1, 2, [3, [4, [5, 6]]]]);
+// [1, 2, 3, 4, 5, 6]
+```
+
+## 手写 getQueryString
+
+```js
+const src = 'https://www.baidu.com/?id=123&name=aaa&phone=12345';
+
+const getQueryString = url => {
+  if (!url.includes('?')) {
+    return null;
+  }
+  const [, search] = url.split('?');
+  const obj = {};
+  search.split('&').forEach(item => {
+    if (item.includes('=')) {
+      const [key, val] = item.split('=');
+      Reflect.set(obj, key, val);
+    }
+  });
+  return obj;
+};
+
+const getQueryString2 = (url: string) => {
+  if (!url.includes('?')) {
+    return null;
+  }
+  const ans = {};
+  url.replace(/([^?&=]+)=([^&]+)/g, (_, k, v) => (ans[k] = v));
+  return ans;
+};
+
+getQueryString(src);
+// { id: "123", name: "aaa", phone: "12345" }
 ```

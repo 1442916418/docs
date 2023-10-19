@@ -1760,3 +1760,31 @@ console.log(hasCircularReference(obj));  // 输出: true
    有一些第三方库，如 lodash 的 `_.cloneDeep` 方法，已经为您处理了循环引用的问题。如果您的项目中已经使用了这样的库，那么您可以考虑使用它来避免重新实现深克隆逻辑。
 
 总的来说，处理循环引用的关键是在深克隆的过程中跟踪已访问的对象，以确保不会陷入无限的递归循环。
+
+## object 的原型指向谁？
+
+在JavaScript中，每个对象都有一个内部属性叫做[[Prototype]]，这个属性指向该对象的原型对象。对于通过对象字面量创建的对象，它们的原型通常是`Object.prototype`。对于通过构造函数创建的对象，其原型指向该构造函数的`prototype`属性。
+
+例如：
+
+```javascript
+let obj = {};
+console.log(obj.__proto__ === Object.prototype);  // true
+
+function Person() {}
+let person = new Person();
+console.log(person.__proto__ === Person.prototype);  // true
+```
+
+在上面的例子中：
+
+1. 对于`obj`对象，它是通过对象字面量创建的，所以它的原型指向`Object.prototype`。
+2. 对于`person`对象，它是通过`Person`构造函数创建的，所以它的原型指向`Person.prototype`。
+
+需要注意的是，使用`__proto__`来访问一个对象的原型并不是一个标准的方法，尽管许多浏览器实现了这个属性。正确的方式是使用`Object.getPrototypeOf(obj)`来获取一个对象的原型。
+
+最终，所有的原型链都会指向`Object.prototype`，而`Object.prototype`的原型是`null`，这意味着它没有原型。
+
+所以，JavaScript中的原型链可以这样描述：
+
+1. 某个对象 -> 其构造函数的prototype -> ... -> Object.prototype -> null
