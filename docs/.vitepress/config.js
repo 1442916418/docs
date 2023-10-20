@@ -26,6 +26,10 @@ export default {
           { text: '网络', link: '/guide/computer/network/index' },
           { text: 'OSI', link: '/guide/computer/osi/index' }
         ]
+      },
+      {
+        text: '代码片段',
+        items: [{ text: 'Three.js', link: '/guide/code-snippet/three/index' }]
       }
     ],
     // editLink: {
