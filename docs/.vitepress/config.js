@@ -6,7 +6,7 @@ export default {
     nav: [
       { text: '导航', link: '/guide/index' },
       {
-        text: '前端基础',
+        text: '基础',
         items: [
           { text: 'HTML', link: '/guide/base/HTML/index' },
           { text: 'CSS', link: '/guide/base/CSS/index' },
@@ -28,7 +28,7 @@ export default {
         ]
       },
       {
-        text: '代码片段',
+        text: '代码片段/库',
         items: [{ text: 'Three.js', link: '/guide/code-snippet/three/index' }]
       }
     ],
