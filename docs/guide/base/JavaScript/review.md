@@ -4,9 +4,9 @@
 
 包括值类型（基本对象类型）和引用类型（复杂对象类型）
 
-**基本类型（值类型）：** Number（数字）、String（字符串）、Boolean（布尔）、Symbol（符号）、null（空）、undefined（未定义）在内存中占据固定大小，保存在栈内存中。
+**基本类型（值类型）：** Number（数字）、String（字符串）、Boolean（布尔）、Symbol（符号）、null（空）、undefined（未定义）、BigInt（大整数）在内存中占据固定大小，保存在栈内存中。
 
-**引用类型（复杂数据类型）：** Object（对象）、Function（函数）。其他还包括Array（数组）、Date（日期）、RegExp（正则表达式）、以及特殊的基本包装类型（String、Number、Boolean）以及单体内置对象（Global、Math）等。引用类型的值是对象，保存在堆内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中的存储地址。
+**引用类型（复杂数据类型）：** Object（对象）。其他还包括Function（函数）、Array（数组）、Date（日期）、RegExp（正则表达式）、以及特殊的基本包装类型（String、Number、Boolean）以及单体内置对象（Global、Math）等。引用类型的值是对象，保存在堆内存中，栈内存存储的是对象的变量标识符以及对象在堆内存中的存储地址。
 
 **使用场景：**
 
