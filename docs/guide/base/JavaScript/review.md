@@ -902,12 +902,9 @@ console.log(calculate("div", 1.2, 2));    // 0.6
     ```
 
     - 参数:
-      1. `searchElement`（必须）: 被查找
-
-  的元素.
-      2. `fromIndex`（可选）: 默认值为 0，参数表示搜索的起始位置，接受负值。正值超过数组长度，数组不会被搜索，返回 `false`。负值绝对值超过长数组度，重置从 0 开始搜索.
-
-  - 返回值: 返回布尔.
+      1. `searchElement`（必须）: 被查找的元素.
+      2. `fromIndex`（可选）: 默认值为 0，参数表示搜索的起始位置，接受负值。正值超过数组长度，数组不会被搜索，返回 `false`。负值绝对值超过长数组度，重置从 0 开始搜索.  
+    - 返回值: 返回布尔.
 
 ## 立即执行函数 (IIFE)
 
@@ -1663,44 +1660,42 @@ console.log(o["prop1"]); // undefined
   - Object.seal() 方法封闭一个对象，阻止添加新属性并将所有现有属性标记为不可配置。当前属性的值只要可写就可以改变。
 
 - **相同点**
-
-- ES5新增。
-- 对象不可能扩展，也就是不能再添加新的属性或者方法。
-- 对象已有属性不允许被删除。
-- 对象属性特性不可以重新配置。
+  - ES5新增。
+  - 对象不可能扩展，也就是不能再添加新的属性或者方法。
+  - 对象已有属性不允许被删除。
+  - 对象属性特性不可以重新配置。
 
 - **不同点**
-
-- `Object.seal` 方法生成的密封对象，如果属性是可写的，那么可以修改属性值。
-- `Object.freeze` 方法生成的冻结对象，属性都是不可写的，也就是属性值无法更改。
+  - `Object.seal` 方法生成的密封对象，如果属性是可写的，那么可以修改属性值。
+  - `Object.freeze` 方法生成的冻结对象，属性都是不可写的，也就是属性值无法更改。
 
 ## in 运算符和 Object.hasOwnProperty 方法有什么区别
 
 - **hasOwnProperty方法**
   - `hasOwnProperty()` 方法返回值是一个布尔值，指示对象自身属性中是否具有指定的属性，因此这个方法会忽略掉那些从原型链上继承到的属性。
 
-```javascript
-Object.prototype.phone = '15345025546';
+  ```javascript
+  Object.prototype.phone = '15345025546';
 
-let obj = {
-  name: '前端精神小伙',
-  age: '28'
-}
+  let obj = {
+    name: '前端精神小伙',
+    age: '28'
+  }
 
-console.log(obj.hasOwnProperty('phone')) // false
-console.log(obj.hasOwnProperty('name')) // true
-```
+  console.log(obj.hasOwnProperty('phone')) // false
+  console.log(obj.hasOwnProperty('name')) // true
+  ```
 
-可以看到，如果在函数原型上定义一个变量 `phone`，`hasOwnProperty` 方法会直接忽略掉。
+  可以看到，如果在函数原型上定义一个变量 `phone`，`hasOwnProperty` 方法会直接忽略掉。
 
 - **in 运算符**
   - 如果指定的属性在指定的对象或其原型链中，则 `in` 运算符返回 `true`。
 
-```javascript
-console.log('phone' in obj) // true
-```
+  ```javascript
+  console.log('phone' in obj) // true
+  ```
 
-可以看到 `in` 运算符会检查它或者其原型链是否包含具有指定名称的属性。
+  可以看到 `in` 运算符会检查它或者其原型链是否包含具有指定名称的属性。
 
 ## 函数表达式和函数声明之间有什么区别
 

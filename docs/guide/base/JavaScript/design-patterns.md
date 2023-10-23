@@ -10,22 +10,22 @@
 
 ```javascript
 class Product {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 }
 
 class Factory {
-    createProduct(type) {
-        switch (type) {
-            case 'A':
-                return new Product('ProductA');
-            case 'B':
-                return new Product('ProductB');
-            default:
-                throw new Error('Invalid product type');
-        }
+  createProduct(type) {
+    switch (type) {
+      case 'A':
+        return new Product('ProductA');
+      case 'B':
+        return new Product('ProductB');
+      default:
+        throw new Error('Invalid product type');
     }
+  }
 }
 
 const factory = new Factory();
@@ -50,17 +50,17 @@ class ProductA {}
 class ProductB {}
 
 class AbstractFactory {
-    createProductA() {}
-    createProductB() {}
+  createProductA() {}
+  createProductB() {}
 }
 
 class ConcreteFactory1 extends AbstractFactory {
-    createProductA() {
-        return new ProductA();
-    }
-    createProductB() {
-        return new ProductB();
-    }
+  createProductA() {
+    return new ProductA();
+  }
+  createProductB() {
+    return new ProductB();
+  }
 }
 
 const factory1 = new ConcreteFactory1();
@@ -82,14 +82,14 @@ console.log(productA1 instanceof ProductA);  // true
 
 ```javascript
 class Singleton {
-    static instance;
+  static instance;
 
-    static getInstance() {
-        if (!this.instance) {
-            this.instance = new Singleton();
-        }
-        return this.instance;
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new Singleton();
     }
+    return this.instance;
+  }
 }
 
 const instance1 = Singleton.getInstance();
@@ -110,24 +110,24 @@ console.log(instance1 === instance2);  // true
 
 ```javascript
 class Product {
-    constructor(builder) {
-        this.partA = builder.partA;
-        this.partB = builder.partB;
-    }
+  constructor(builder) {
+    this.partA = builder.partA;
+    this.partB = builder.partB;
+  }
 }
 
 class Builder {
-    setPartA(partA) {
-        this.partA = partA;
-        return this;
-    }
-    setPartB(partB) {
-        this.partB = partB;
-        return this;
-    }
-    build() {
-        return new Product(this);
-    }
+  setPartA(partA) {
+    this.partA = partA;
+    return this;
+  }
+  setPartB(partB) {
+    this.partB = partB;
+    return this;
+  }
+  build() {
+    return new Product(this);
+  }
 }
 
 const builder = new Builder();
@@ -148,12 +148,12 @@ console.log(product.partA);  // A
 
 ```javascript
 class Prototype {
-    constructor(name) {
-        this.name = name;
-    }
-    clone() {
-        return Object.create(this);
-    }
+  constructor(name) {
+    this.name = name;
+  }
+  clone() {
+    return Object.create(this);
+  }
 }
 
 const prototype = new Prototype('Original');
@@ -179,19 +179,19 @@ console.log(clone.name);  // Original
 
 ```javascript
 class OldService {
-    oldRequest() {
-        return 'Old Service';
-    }
+  oldRequest() {
+    return 'Old Service';
+  }
 }
 
 class Adapter {
-    constructor(oldService) {
-        this.oldService = oldService;
-    }
+  constructor(oldService) {
+    this.oldService = oldService;
+  }
 
-    request() {
-        return this.oldService.oldRequest();
-    }
+  request() {
+    return this.oldService.oldRequest();
+  }
 }
 
 const oldService = new OldService();
@@ -213,30 +213,30 @@ console.log(adapter.request());  // Old Service
 
 ```javascript
 class Component {
-    operation() {}
+  operation() {}
 }
 
 class ConcreteComponent extends Component {
-    operation() {
-        return 'Component';
-    }
+  operation() {
+    return 'Component';
+  }
 }
 
 class Decorator extends Component {
-    constructor(component) {
-        super();
-        this.component = component;
-    }
+  constructor(component) {
+    super();
+    this.component = component;
+  }
 
-    operation() {
-        return this.component.operation();
-    }
+  operation() {
+    return this.component.operation();
+  }
 }
 
 class ConcreteDecorator extends Decorator {
-    operation() {
-        return 'Decorated ' + super.operation();
-    }
+  operation() {
+    return 'Decorated ' + super.operation();
+  }
 }
 
 const component = new ConcreteComponent();
@@ -258,19 +258,19 @@ console.log(decorator.operation());  // Decorated Component
 
 ```javascript
 class RealSubject {
-    request() {
-        return 'Real Subject';
-    }
+  request() {
+    return 'Real Subject';
+  }
 }
 
 class Proxy {
-    constructor(realSubject) {
-        this.realSubject = realSubject;
-    }
+  constructor(realSubject) {
+    this.realSubject = realSubject;
+  }
 
-    request() {
-        return 'Proxy: ' + this.realSubject.request();
-    }
+  request() {
+    return 'Proxy: ' + this.realSubject.request();
+  }
 }
 
 const realSubject = new RealSubject();
@@ -293,26 +293,26 @@ console.log(proxy.request());  // Proxy: Real Subject
 
 ```javascript
 class SubSystemA {
-    operationA() {
-        return 'Operation A';
-    }
+  operationA() {
+    return 'Operation A';
+  }
 }
 
 class SubSystemB {
-    operationB() {
-        return 'Operation B';
-    }
+  operationB() {
+    return 'Operation B';
+  }
 }
 
 class Facade {
-    constructor() {
-        this.subSystemA = new SubSystemA();
-        this.subSystemB = new SubSystemB();
-    }
+  constructor() {
+    this.subSystemA = new SubSystemA();
+    this.subSystemB = new SubSystemB();
+  }
 
-    operation() {
-        return this.subSystemA.operationA() + ' and ' + this.subSystemB.operationB();
-    }
+  operation() {
+    return this.subSystemA.operationA() + ' and ' + this.subSystemB.operationB();
+  }
 }
 
 const facade = new Facade();
@@ -333,23 +333,23 @@ console.log(facade.operation());  // Operation A and Operation B
 
 ```javascript
 class Implementor {
-    operationImp() {}
+  operationImp() {}
 }
 
 class ConcreteImplementorA extends Implementor {
-    operationImp() {
-        return 'Implementor A';
-    }
+  operationImp() {
+    return 'Implementor A';
+  }
 }
 
 class Abstraction {
-    constructor(implementor) {
-        this.implementor = implementor;
-    }
+  constructor(implementor) {
+    this.implementor = implementor;
+  }
 
-    operation() {
-        return this.implementor.operationImp();
-    }
+  operation() {
+    return this.implementor.operationImp();
+  }
 }
 
 const implementor = new ConcreteImplementorA();
@@ -371,28 +371,28 @@ console.log(abstraction.operation());  // Implementor A
 
 ```javascript
 class Component {
-    operation() {}
+  operation() {}
 }
 
 class Leaf extends Component {
-    operation() {
-        return 'Leaf';
-    }
+  operation() {
+    return 'Leaf';
+  }
 }
 
 class Composite extends Component {
-    constructor() {
-        super();
-        this.children = [];
-    }
+  constructor() {
+    super();
+    this.children = [];
+  }
 
-    add(child) {
-        this.children.push(child);
-    }
+  add(child) {
+    this.children.push(child);
+  }
 
-    operation() {
-        return this.children.map(child => child.operation()).join(', ');
-    }
+  operation() {
+    return this.children.map(child => child.operation()).join(', ');
+  }
 }
 
 const leaf1 = new Leaf();
@@ -419,26 +419,26 @@ console.log(composite.operation());  // Leaf, Leaf
 class
 
  Flyweight {
-    constructor(sharedState) {
-        this.sharedState = sharedState;
-    }
+  constructor(sharedState) {
+    this.sharedState = sharedState;
+  }
 
-    operation(uniqueState) {
-        return `Shared State: ${this.sharedState}, Unique State: ${uniqueState}`;
-    }
+  operation(uniqueState) {
+    return `Shared State: ${this.sharedState}, Unique State: ${uniqueState}`;
+  }
 }
 
 class FlyweightFactory {
-    constructor() {
-        this.flyweights = {};
-    }
+  constructor() {
+    this.flyweights = {};
+  }
 
-    getFlyweight(sharedState) {
-        if (!this.flyweights[sharedState]) {
-            this.flyweights[sharedState] = new Flyweight(sharedState);
-        }
-        return this.flyweights[sharedState];
+  getFlyweight(sharedState) {
+    if (!this.flyweights[sharedState]) {
+      this.flyweights[sharedState] = new Flyweight(sharedState);
     }
+    return this.flyweights[sharedState];
+  }
 }
 
 const factory = new FlyweightFactory();
@@ -464,27 +464,27 @@ console.log(flyweight.operation('Unique1'));  // Shared State: Shared1, Unique S
 
 ```javascript
 class Strategy {
-    execute() {}
+  execute() {}
 }
 
 class ConcreteStrategyA extends Strategy {
-    execute() {
-        return 'Strategy A';
-    }
+  execute() {
+    return 'Strategy A';
+  }
 }
 
 class Context {
-    constructor(strategy) {
-        this.strategy = strategy;
-    }
+  constructor(strategy) {
+    this.strategy = strategy;
+  }
 
-    setStrategy(strategy) {
-        this.strategy = strategy;
-    }
+  setStrategy(strategy) {
+    this.strategy = strategy;
+  }
 
-    executeStrategy() {
-        return this.strategy.execute();
-    }
+  executeStrategy() {
+    return this.strategy.execute();
+  }
 }
 
 const strategyA = new ConcreteStrategyA();
@@ -506,23 +506,23 @@ console.log(context.executeStrategy());  // Strategy A
 
 ```javascript
 class AbstractClass {
-    templateMethod() {
-        this.primitiveOperation1();
-        this.primitiveOperation2();
-    }
+  templateMethod() {
+    this.primitiveOperation1();
+    this.primitiveOperation2();
+  }
 
-    primitiveOperation1() {}
-    primitiveOperation2() {}
+  primitiveOperation1() {}
+  primitiveOperation2() {}
 }
 
 class ConcreteClass extends AbstractClass {
-    primitiveOperation1() {
-        console.log('Operation 1');
-    }
+  primitiveOperation1() {
+    console.log('Operation 1');
+  }
 
-    primitiveOperation2() {
-        console.log('Operation 2');
-    }
+  primitiveOperation2() {
+    console.log('Operation 2');
+  }
 }
 
 const concrete = new ConcreteClass();
@@ -543,23 +543,23 @@ concrete.templateMethod();  // Output: Operation 1 \n Operation 2
 
 ```javascript
 class Subject {
-    constructor() {
-        this.observers = [];
-    }
+  constructor() {
+    this.observers = [];
+  }
 
-    addObserver(observer) {
-        this.observers.push(observer);
-    }
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
 
-    notify(data) {
-        this.observers.forEach(observer => observer.update(data));
-    }
+  notify(data) {
+    this.observers.forEach(observer => observer.update(data));
+  }
 }
 
 class Observer {
-    update(data) {
-        console.log('Observer received:', data);
-    }
+  update(data) {
+    console.log('Observer received:', data);
+  }
 }
 
 const subject = new Subject();
@@ -582,23 +582,23 @@ subject.notify('Some data');  // Observer received: Some data
 
 ```javascript
 class Iterator {
-    constructor(items) {
-        this.index = 0;
-        this.items = items;
-    }
+  constructor(items) {
+    this.index = 0;
+    this.items = items;
+  }
 
-    hasNext() {
-        return this.index < this.items.length;
-    }
+  hasNext() {
+    return this.index < this.items.length;
+  }
 
-    next() {
-        return this.items[this.index++];
-    }
+  next() {
+    return this.items[this.index++];
+  }
 }
 
 const iterator = new Iterator(['A', 'B', 'C']);
 while (iterator.hasNext()) {
-    console.log(iterator.next());  // A \n B \n C
+  console.log(iterator.next());  // A \n B \n C
 }
 ```
 
@@ -616,25 +616,25 @@ while (iterator.hasNext()) {
 
 ```javascript
 class Handler {
-    setNext(handler) {
-        this.nextHandler = handler;
-    }
+  setNext(handler) {
+    this.nextHandler = handler;
+  }
 
-    handleRequest(request) {
-        if (this.nextHandler) {
-            this.nextHandler.handleRequest(request);
-        }
+  handleRequest(request) {
+    if (this.nextHandler) {
+      this.nextHandler.handleRequest(request);
     }
+  }
 }
 
 class ConcreteHandlerA extends Handler {
-    handleRequest(request) {
-        if (request === 'A') {
-            console.log('Handler A handled request A');
-        } else if (this.nextHandler) {
-            this.nextHandler.handleRequest(request);
-        }
+  handleRequest(request) {
+    if (request === 'A') {
+      console.log('Handler A handled request A');
+    } else if (this.nextHandler) {
+      this.nextHandler.handleRequest(request);
     }
+  }
 }
 
 const handlerA = new ConcreteHandlerA();
@@ -657,24 +657,24 @@ handlerA.handleRequest('A');  // Handler A handled request A
 
 ```javascript
 class Command {
-    execute() {}
+  execute() {}
 }
 
 class ConcreteCommand extends Command {
-    constructor(receiver) {
-        super();
-        this.receiver = receiver;
-    }
+  constructor(receiver) {
+    super();
+    this.receiver = receiver;
+  }
 
-    execute() {
-        this.receiver.action();
-    }
+  execute() {
+    this.receiver.action();
+  }
 }
 
 class Receiver {
-    action() {
-        console.log('Receiver action');
-    }
+  action() {
+    console.log('Receiver action');
+  }
 }
 
 const receiver = new Receiver();
@@ -698,27 +698,27 @@ command.execute();  // Receiver action
 class Originator {
 
 
-    constructor(state) {
-        this.state = state;
-    }
+  constructor(state) {
+    this.state = state;
+  }
 
-    createMemento() {
-        return new Memento(this.state);
-    }
+  createMemento() {
+    return new Memento(this.state);
+  }
 
-    restore(memento) {
-        this.state = memento.getState();
-    }
+  restore(memento) {
+    this.state = memento.getState();
+  }
 }
 
 class Memento {
-    constructor(state) {
-        this.state = state;
-    }
+  constructor(state) {
+    this.state = state;
+  }
 
-    getState() {
-        return this.state;
-    }
+  getState() {
+    return this.state;
+  }
 }
 
 const originator = new Originator('Initial State');
@@ -742,34 +742,34 @@ console.log(originator.state);  // Initial State
 
 ```javascript
 class State {
-    handle(context) {}
+  handle(context) {}
 }
 
 class ConcreteStateA extends State {
-    handle(context) {
-        console.log('State A handling');
-        context.setState(new ConcreteStateB());
-    }
+  handle(context) {
+    console.log('State A handling');
+    context.setState(new ConcreteStateB());
+  }
 }
 
 class ConcreteStateB extends State {
-    handle(context) {
-        console.log('State B handling');
-    }
+  handle(context) {
+    console.log('State B handling');
+  }
 }
 
 class Context {
-    constructor(state) {
-        this.state = state;
-    }
+  constructor(state) {
+    this.state = state;
+  }
 
-    setState(state) {
-        this.state = state;
-    }
+  setState(state) {
+    this.state = state;
+  }
 
-    request() {
-        this.state.handle(this);
-    }
+  request() {
+    this.state.handle(this);
+  }
 }
 
 const context = new Context(new ConcreteStateA());
@@ -791,27 +791,27 @@ context.request();  // State B handling
 
 ```javascript
 class Element {
-    accept(visitor) {}
+  accept(visitor) {}
 }
 
 class ConcreteElementA extends Element {
-    accept(visitor) {
-        visitor.visitConcreteElementA(this);
-    }
+  accept(visitor) {
+    visitor.visitConcreteElementA(this);
+  }
 
-    operationA() {
-        return 'Element A';
-    }
+  operationA() {
+    return 'Element A';
+  }
 }
 
 class Visitor {
-    visitConcreteElementA(element) {}
+  visitConcreteElementA(element) {}
 }
 
 class ConcreteVisitor extends Visitor {
-    visitConcreteElementA(element) {
-        console.log('Visiting ' + element.operationA());
-    }
+  visitConcreteElementA(element) {
+    console.log('Visiting ' + element.operationA());
+  }
 }
 
 const element = new ConcreteElementA();
@@ -833,37 +833,37 @@ element.accept(visitor);  // Visiting Element A
 
 ```javascript
 class Mediator {
-    send(message, colleague) {}
+  send(message, colleague) {}
 }
 
 class ConcreteMediator extends Mediator {
-    constructor(colleague1, colleague2) {
-        super();
-        this.colleague1 = colleague1;
-        this.colleague2 = colleague2;
-    }
+  constructor(colleague1, colleague2) {
+    super();
+    this.colleague1 = colleague1;
+    this.colleague2 = colleague2;
+  }
 
-    send(message, colleague) {
-        if (colleague === this.colleague1) {
-            this.colleague2.notify(message);
-        } else {
-            this.colleague1.notify(message);
-        }
+  send(message, colleague) {
+    if (colleague === this.colleague1) {
+      this.colleague2.notify(message);
+    } else {
+      this.colleague1.notify(message);
     }
+  }
 }
 
 class Colleague {
-    constructor(mediator) {
-        this.mediator = mediator;
-    }
+  constructor(mediator) {
+    this.mediator = mediator;
+  }
 
-    send(message) {
-        this.mediator.send(message, this);
-    }
+  send(message) {
+    this.mediator.send(message, this);
+  }
 
-    notify(message) {
-        console.log('Colleague received:', message);
-    }
+  notify(message) {
+    console.log('Colleague received:', message);
+  }
 }
 
 const colleague1 = new Colleague();
@@ -886,19 +886,19 @@ colleague1.send('Hello');  // Colleague received: Hello
 
 ```javascript
 class AbstractExpression {
-    interpret(context) {}
+  interpret(context) {}
 }
 
 class TerminalExpression extends AbstractExpression {
-    interpret(context) {
-        console.log('Terminal for', context);
-    }
+  interpret(context) {
+    console.log('Terminal for', context);
+  }
 }
 
 class NonterminalExpression extends AbstractExpression {
-    interpret(context) {
-        console.log('Nonterminal for', context);
-    }
+  interpret(context) {
+    console.log('Nonterminal for', context);
+  }
 }
 
 const context = 'Context';

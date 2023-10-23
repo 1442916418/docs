@@ -171,49 +171,55 @@ console.log(Object.getPrototypeOf(Object.prototype) === null); // true
 
 原型继承是 JavaScript 中实现对象复用和继承的核心机制，它允许开发人员创建可维护和扩展的代码，实现了面向对象编程的基本概念。
 
-## AMD vs. CommonJS
+## 模块规范
 
-AMD（异步模块定义）和 CommonJS 是两种 JavaScript 模块化系统，它们都用于组织和管理 JavaScript 代码，但在一些方面有不同的特点。下面将比较它们的主要区别和使用场景：
+### 1. CommonJS (CJS)
 
-### CommonJS
+**特点**:
 
-CommonJS 是一种模块规范，最初是为服务器端编程设计的，但也被广泛用于前端开发中（主要在 Node.js 环境中使用）。它的主要特点包括：
+- **同步加载**: 主要为服务器设计，因为在服务器上读取文件是非常快的。
+- **简洁的语法**: 使用 `require` 加载依赖，`module.exports` 导出模块内容。
 
-- **同步加载**：CommonJS 模块是同步加载的，它们会在代码执行过程中阻塞其他操作，直到模块加载完成。
+**优势**:
 
-- **服务器端**：CommonJS 最初是为服务器端编程设计的，因此适用于需要同步加载模块的场景。
+- 适合服务器端（如 Node.js）。
+- 大量的 NPM 库使用它。
 
-- **module.exports 和 require**：在 CommonJS 中，使用 `module.exports` 导出模块，然后使用 `require` 导入它们。
+**劣势**:
+
+- 同步的加载方式不适合浏览器环境，因为这会阻塞浏览器，导致加载时间增加。
+- 不易进行静态分析。
 
 ```javascript
-// 模块定义
-// math.js
-module.exports = {
-  add: function(a, b) {
-    return a + b;
-  }
-};
+// 定义 math.js
+const add = (a, b) => a + b;
+module.exports = add;
 
-// 模块导入
-// main.js
-const math = require('./math.js');
-console.log(math.add(2, 3)); // 输出 5
+// 使用
+const add = require('./math.js');
+console.log(add(2, 3));  // 输出：5
 ```
 
-### AMD (Asynchronous Module Definition)
+### 2. Asynchronous Module Definition (AMD)
 
-AMD 是另一种模块规范，主要用于浏览器端的异步加载模块。其特点包括：
+**特点**:
 
-- **异步加载**：AMD 模块是异步加载的，不会阻塞其他操作，可以在页面加载过程中并行加载多个模块。
+- **异步加载**: 专为浏览器设计。
+- **使用 `define` 方法**: 用于定义模块和其依赖。
 
-- **浏览器端**：AMD 最初是为浏览器端设计的，因此适用于需要异步加载模块的场景，如模块懒加载。
+**优势**:
 
-- **define 和 require**：在 AMD 中，使用 `define` 来定义模块，然后使用 `require` 来异步加载它们。
+- 非阻塞加载，适合大型应用和网络延迟环境。
+- 可以并行加载多个模块。
+
+**劣势**:
+
+- 语法相对复杂。
+- 需要额外的库（如 RequireJS）来实现。
 
 ```javascript
-// 模块定义
-// math.js
-define(function() {
+// 定义 math.js
+define([], function() {
   return {
     add: function(a, b) {
       return a + b;
@@ -221,24 +227,144 @@ define(function() {
   };
 });
 
-// 模块导入
-// main.js
+// 使用
 require(['math'], function(math) {
-  console.log(math.add(2, 3)); // 输出 5
+  console.log(math.add(2, 3));  // 输出：5
 });
 ```
 
-### 如何选择
+### 3. Universal Module Definition (UMD)
 
-选择使用 AMD 还是 CommonJS 取决于你的项目需求和环境：
+UMD 是一种尝试合并 CommonJS、AMD 和全局变量声明为一个通用解决方案的设计模式。它允许你的 JavaScript 模块在各种环境中运行，包括浏览器、Node.js 和其他类似的环境。
 
-- **浏览器端**：如果你需要在浏览器端异步加载模块，AMD 更适合。它适用于大型单页应用（SPA）和需要按需加载模块的情况。
+UMD 的核心思想是首先尝试提供模块给 CommonJS（例如 Node.js 环境）；如果 CommonJS 不可用，它会尝试 AMD（例如浏览器中的 RequireJS）；如果都不可用，它会将模块暴露为一个全局变量。
 
-- **服务器端**：如果你在 Node.js 或其他服务器端环境中工作，CommonJS 更合适，因为它是同步加载的，适合服务器端的模块组织。
+**特点**:
 
-- **工具支持**：在选择模块规范时，还需要考虑你的构建工具和库是否支持你选择的规范。许多构建工具支持将 CommonJS 和 AMD 转换为浏览器可以理解的模块。
+- **兼容性**: 尝试提供一个兼容 CommonJS 和 AMD 的模式。
+  
+**优势**:
 
-总的来说，AMD 和 CommonJS 都有各自的优点和适用场景，你应该根据具体的项目需求和环境来选择适合的模块规范。
+- 可以在多种环境中使用，无论是服务器还是浏览器。
+- 对开发者友好，不需要关心目标环境。
+
+**劣势**:
+
+- 代码可能会比单一的 CJS 或 AMD 更加冗长和复杂。
+
+这个 UMD 模块的解释：
+
+1.使用立即调用的函数表达式 (IIFE) 来创建一个封闭的作用域，防止模块内部的变量或函数污染全局命名空间。  
+2.这个 IIFE 接受两个参数：root 和 factory。root 是当前环境的全局对象， factory 是模块的工厂函数。  
+3.通过检测 define 函数的存在及其 amd 属性来确定是否处于 AMD 环境。  
+4.如果不是 AMD 环境，再通过检测 exports 的类型来确定是否处于 CommonJS 或类似 CommonJS 的环境。  
+5.如果都不是上述的环境，就将模块的导出值附加到全局对象上。  
+
+```javascript
+// 定义 math.js
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    // Node, CommonJS
+    module.exports = factory();
+  } else {
+    // Browser global
+    root.returnExports = factory();
+  }
+}(this, function() {
+  return {
+    add: function(a, b) {
+      return a + b;
+    }
+  };
+}));
+
+// 在 CommonJS 环境中使用
+const add = require('./path-to-umd-module');
+console.log(add(2, 3));  // 输出：5
+
+// 在 AMD (RequireJS) 环境中使用
+require(['path-to-umd-module'], function(add) {
+    console.log(add(2, 3));  // 输出：5
+});
+
+// 在浏览器环境中使用
+<script src="path-to-umd-module.js"></script>
+<script>
+  console.log(add(2, 3));  // 输出：5
+</script>
+```
+
+### 4. ECMAScript Modules (ESM)
+
+**特点**:
+
+- **官方标准**: 是 ES6（ES2015）的一部分。
+- **支持静态导入/导出**: 使用 `import` 和 `export` 关键字。
+
+**优势**:
+
+- 语法简洁且易于理解。
+- 支持静态分析，这使得诸如 Tree Shaking（摇树优化）这样的技术成为可能，可以在构建时去除未使用的代码。
+- 有望成为前端和后端通用的模块系统。
+
+**劣势**:
+
+- 虽然现代浏览器都支持 ESM，但旧版本浏览器不支持。
+- 动态导入较为复杂。
+
+```javascript
+// 定义 math.js
+export const add = (a, b) => a + b;
+
+// 使用
+import { add } from './math.js';
+console.log(add(2, 3));  // 输出：5
+```
+
+### 5. System.register
+
+**特点**:
+
+- **SystemJS 模块格式**: 提供一个针对未来的模块加载系统，可用于加载 ESM、AMD 和 CJS。
+
+**优势**:
+
+- 高度灵活，兼容多种模块格式。
+- 适合在浏览器中异步加载模块。
+
+**劣势**:
+
+- 需要额外的库（SystemJS）。
+- 与原生 ESM 相比，可能增加了一些复杂性。
+
+```javascript
+// 定义
+System.register([], function(exports, module) {
+  return {
+    setters: [],
+    execute: function() {
+      function add(a, b) {
+        return a + b;
+      }
+      exports('add', add);
+    }
+  };
+});
+
+// 使用
+System.import('math').then(function(math) {
+  console.log(math.add(2, 3));  // 输出：5
+});
+```
+
+**总结**:
+
+- 对于浏览器中的现代开发，ESM 逐渐成为主流选择，因为它是语言的官方标准，且大多数现代工具（如 Webpack, Rollup 等）都提供了对其的支持。
+- 对于 Node.js，虽然它的模块系统最初是基于 CommonJS 的，但最新版本也开始支持 ESM。
+- 对于需要兼容多种模块系统或旧版本浏览器的场景，UMD 和 System.register 仍然很有价值。
 
 ## 为什么这段代码不是 IIFE
 
@@ -457,7 +583,7 @@ JavaScript 中的对象可以分为两类：宿主对象（Host Objects）和原
 
 区别在于宿主对象是由运行时环境提供的，具体行为可能因环境而异，而原生对象是 JavaScript 语言的一部分，行为在所有环境中都一致。
 
-## JavaScript 中的函数和 .call/.apply/.bind
+## JavaScript 中的函数和 .call、.apply、.bind
 
 ### 区分 `function Person() {}`、`var person = Person()` 和 `var person = new Person()`
 
@@ -603,8 +729,6 @@ Ajax（Asynchronous JavaScript and XML）是一种用于在不重新加载整个
 8. **处理响应**：客户端接收到响应后，可以解析响应数据并在网页上更新内容，而无需重新加载整个页面。
 
 Ajax 允许网页与服务器进行异步通信，以获取数据或执行操作，而不会中断用户的浏览体验。这使得网页可以实现动态加载数据、实时更新和交互性。常见的 Ajax 库和框架，如 jQuery 和 Axios，简化了 Ajax 请求的处理。
-
-## Ajax 的优劣
 
 ### 优势
 
@@ -972,13 +1096,11 @@ for (let i = 1; i <= 100; i++) {
 
 - 使用 `defer` 属性：将脚本标记为 `defer`，可以使脚本在页面加载完毕后执行，但不会阻塞渲染。这有助于提高页面加载性能。
 
-- 使用现代框架和工具：许多现
-
-代前端框架和工具提供了更灵活的加载和初始化方式，可以根据需要异步加载和执行代码。
+- 使用现代框架和工具：许多现代前端框架和工具提供了更灵活的加载和初始化方式，可以根据需要异步加载和执行代码。
 
 ## 解释什么是单页应用 (single page app)，以及如何使其对搜索引擎友好 (SEO-friendly)
 
-**单页应用（Single Page Application，SPA）**是一种Web应用程序的设计方式，其中页面内容通常在加载初始页面后不再完全刷新。相反，SPA使用JavaScript来动态地加载和更新页面内容，通常通过AJAX请求从服务器获取数据，然后使用前端路由来切换视图。这导致更快的页面切换和更流畅的用户体验。
+**单页应用（Single Page Application，SPA**是一种Web应用程序的设计方式，其中页面内容通常在加载初始页面后不再完全刷新。相反，SPA使用JavaScript来动态地加载和更新页面内容，通常通过AJAX请求从服务器获取数据，然后使用前端路由来切换视图。这导致更快的页面切换和更流畅的用户体验。
 
 使SPA对搜索引擎友好（SEO-friendly）是一个挑战，因为搜索引擎通常依赖于页面的HTML内容来理解网页。以下是一些方法，使SPA对搜索引擎友好：
 
