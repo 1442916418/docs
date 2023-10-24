@@ -55,8 +55,6 @@
 }
 ```
 
-下面是你提供的文档的修订版，已使用 Markdown 格式进行了排版和修正：
-
 ## 常见的兼容性问题
 
 - 不同浏览器的标签默认的 margin 和 padding 不一样. 可以使用以下通用 CSS 重置规则来规范化默认样式：
@@ -72,9 +70,90 @@
 
 - 设置较小高度的标签（一般小于 10px），在 IE6 和 IE7 中高度可能超出自己设置的高度。解决方法是给超出高度的标签设置 `overflow: hidden;` 或者设置行高 `line-height` 小于你设置的高度。
 
-- 在 Chrome 中文界面下，默认会将小于 12px 的文本强制按照 12px 显示，可以通过添加 CSS 属性 `-webkit-text-size-adjust: none;` 解决。
+### 超链接
 
-- 超链接访问过后 hover 样式就不出现，被点击访问过的超链接样式不再具有 hover 和 active 了。解决方法是改变 CSS 属性的排列顺序: `L-V-H-A`（love-hate）。
+超链接访问过后 hover 样式就不出现，被点击访问过的超链接样式不再具有 hover 和 active 了。解决方法是改变 CSS 属性的排列顺序: `L-V-H-A`（love-hate）。
+
+L-V-H-A 代表：
+
+- **L:** :link — 未访问的链接
+- **V:** :visited — 已访问的链接
+- **H:** :hover — 鼠标悬停在链接上
+- **A:** :active — 链接被点击的瞬间
+
+```css
+/* 未访问的链接 */
+a:link {
+  color: blue;
+  text-decoration: none; /* 去掉下划线 */
+}
+
+/* 已访问的链接 */
+a:visited {
+  color: purple;
+}
+
+/* 鼠标悬停在链接上 */
+a:hover {
+  color: red;
+  text-decoration: underline; /* 添加下划线 */
+}
+
+/* 链接被点击的瞬间 */
+a:active {
+  color: green;
+}
+```
+
+### Chrome支持小于 12px 的文字
+
+Chrome 中文版浏览器会默认设定页面的最小字号是12px，英文版没有限制，原由 Chrome 团队认为汉字小于12px就会增加识别难度。
+
+- 中文版浏览器 与网页语言无关，取决于用户在Chrome的设置里（chrome://settings/languages）把哪种语言设置为默认显示语言  
+- 系统级最小字号 浏览器默认设定页面的最小字号，用户可以前往 chrome://settings/fonts 根据需求更改  
+
+解决方案（3种）
+
+1.zoom  
+
+zoom 可以改变页面上元素的尺寸，属于真实尺寸。
+
+其支持的值类型有：
+
+zoom:50%，表示缩小到原来的一半
+zoom:0.5，表示缩小到原来的一半
+
+```css
+.span{
+  font-size: 12px;
+  display: inline-block;
+  zoom: 0.8;
+}
+```
+
+2.transform:scale()
+
+transform:scale()这个属性进行放缩，使用scale属性只对可以定义宽高的元素生效，所以，需要将指定元素转为行内块元素
+
+```css
+.span{
+  font-size: 12px;
+  display: inline-block;
+  transform:scale(0.8);
+}
+```
+
+3.text-size-adjust
+
+该属性用来设定文字大小是否根据设备(浏览器)来自动调整显示大小
+
+属性值：
+
+- auto：默认，字体大小会根据设备/浏览器来自动调整；
+- percentage：字体显示的大小
+- none:字体大小不会自动调整
+
+存在兼容性问题，chrome受版本限制，safari可以。
 
 ## CSS3 新特性
 
@@ -123,8 +202,6 @@ border-image: url(border.png);
 - **弹性布局、栅格布局、多列布局**
 - **媒体查询**
 
-以下是你提供的文档的修订版，已使用 Markdown 格式进行了排版和修正：
-
 ## position 属性的值及其区别
 
 - **固定定位 (`fixed`)**：元素的位置相对于浏览器窗口是固定的，即使窗口滚动，它也不会移动。固定定位的元素不占据文档流中的空间，因此与其他元素重叠。
@@ -159,7 +236,11 @@ CSS 盒子模型本质上是一个包含边距、边框、填充和实际内容�
 
 - **标准盒模型：** 一个块的总宽度 = `width + margin (左右) + padding (左右) + border (左右)`
 
+![content-box](/img/content-box.png)
+
 - **怪异盒模型：** 一个块的总宽度 = `width + margin (左右)`（即 `width` 已经包含了 `padding` 和 `border` 值）
+
+![border-box](/img/border-box.png)
 
 ## BFC（块级格式上下文）
 
@@ -290,8 +371,6 @@ Flex 是 Flexible Box 的缩写，意为"弹性布局"，它为盒状模型提�
 - `flex`：是 `flex-grow`、`flex-shrink`、`flex-basis` 的简写，默认值为 `0 1 auto`。
 - `align-self`：允许单个项目与其他项目不一样的对齐方式，可以覆盖容器的 `align-items`。
 - `align-items`：默认属性为 `auto`，表示继承自父元素的 `align-items`。例如，使用 Flex 实现圣杯布局。
-
-以下是修订后的文档，已使用 Markdown 格式排版和修正：
 
 ### Rem 布局
 
@@ -1157,9 +1236,7 @@ CSS规则的优先级是通过以下方式决定的（按权重从高到低排�
 ```css
 .container {
   display: grid;
-  grid-template-columns:
-
- 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
 }
 ```

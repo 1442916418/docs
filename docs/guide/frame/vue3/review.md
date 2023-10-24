@@ -14,17 +14,13 @@ Options API 是 Vue 的传统编程模式。在这种模式下，我们通过定
 
 ### 3. Composition API 相对于 Options API 的优点
 
-#### 逻辑组织
+- 逻辑组织
+  - **Options API**：在处理大型组件时，相关的逻辑点容易分散在 `methods`、`computed`、`watch` 等选项中。这种碎片化使得代码阅读和维护变得困难。
+  - **Composition API**：允许将某个逻辑关注点的所有代码放在一起。这样，当需要修改某个功能时，我们不再需要在文件中不断地跳转。
 
-- **Options API**：在处理大型组件时，相关的逻辑点容易分散在 `methods`、`computed`、`watch` 等选项中。这种碎片化使得代码阅读和维护变得困难。
-
-- **Composition API**：允许将某个逻辑关注点的所有代码放在一起。这样，当需要修改某个功能时，我们不再需要在文件中不断地跳转。
-
-#### 逻辑复用
-
-- **Options API**：在 Vue 2 中，混入（mixin）是复用逻辑的主要方式，但存在命名冲突和数据来源不明确的问题。
-
-- **Composition API**：提供了更灵活的逻辑复用机制，例如通过创建自定义 hooks 函数。
+- 逻辑复用
+  - **Options API**：在 Vue 2 中，混入（mixin）是复用逻辑的主要方式，但存在命名冲突和数据来源不明确的问题。
+  - **Composition API**：提供了更灵活的逻辑复用机制，例如通过创建自定义 hooks 函数。
 
 ### 总结
 
@@ -159,19 +155,19 @@ Tree shaking 基于 ES6 模块语法（import 和 exports），主要利用 ES6 
 
 以下是选项式 API 与组合式 API 之间生命周期钩子的对比：
 
-| 选项式 API       | 组合式 API       |
-|-----------------|-----------------|
-| beforeCreate    | (setup)         |
-| created         | (setup)         |
-| beforeMount     | onBeforeMount   |
-| mounted         | onMounted       |
-| beforeUpdate    | onBeforeUpdate  |
-| updated         | onUpdated       |
-| beforeDestroy   | onBeforeUnmount |
-| destroyed       | onUnmounted     |
-| errorCaptured   | onErrorCaptured |
-| activated       | onActivated     |
-| deactivated     | onDeactivated   |
+| 选项式 API     | 组合式 API       | 生命周期说明                             |
+|----------------|------------------|------------------------------------------|
+| beforeCreate   | (setup)          | 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。 |
+| created        | (setup)          | 实例已经创建完成之后被调用。             |
+| beforeMount    | onBeforeMount    | 在挂载开始之前被调用：相关的 render 函数首次被调用。 |
+| mounted        | onMounted        | el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。 |
+| beforeUpdate   | onBeforeUpdate   | 数据更新时调用，发生在虚拟 DOM 打补丁之前。 |
+| updated        | onUpdated        | 由于数据更改导致的虚拟 DOM 重新渲染和打补丁之后调用。 |
+| beforeDestroy  | onBeforeUnmount  | 实例销毁之前调用。                       |
+| destroyed      | onUnmounted      | Vue 实例销毁后调用。                     |
+| errorCaptured  | onErrorCaptured  | 当捕获一个来自子孙组件的错误时被调用。   |
+| activated      | onActivated      | keep-alive 组件激活时调用。              |
+| deactivated    | onDeactivated    | keep-alive 组件停用时调用。              |
 
 ## `watch` 和 `watchEffect` 的区别？
 
@@ -295,7 +291,7 @@ Vue 作为一个前端框架，组件间的通信是其核心特性之一。Vue2
 11. `$root`: 通过根实例进行组件间通信。
 12. `slot`: 使用插槽进行内容分发。
 
-## ref` 与 `reactive` 的区别？
+## `ref` 与 `reactive` 的区别？
 
 `ref` 和 `reactive` 是 Vue3 新推出的重要 API 用于创建响应式数据。
 
