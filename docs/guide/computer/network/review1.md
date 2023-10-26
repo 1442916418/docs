@@ -1,6 +1,6 @@
-# 网络复习
+# 网络复习 - ChartAI
 
-## 为什么传统上利用多个域名来提供网站资源会更有效？ - ChartAI3.5
+## 为什么传统上利用多个域名来提供网站资源会更有效？
 
 在早期的网络应用和浏览器中，浏览器对于单个域名的并发请求是有限制的。当网站的内容主要由图像、样式表、脚本等资源组成时，如果所有资源都来自同一域名，那么加载的速度可能会受到限制。通过使用多个域名（或称为子域名、CDN域名等）来提供资源，浏览器可以并发地从不同的域名加载资源，从而提高页面的加载速度。
 
@@ -18,7 +18,7 @@
 
 但值得注意的是，现代浏览器已经提高了对单个域名的并发请求限制，而且随着HTTP/2和HTTP/3的普及，多个资源可以在单个连接上并行加载，所以这个策略可能不再那么重要。
 
-## 从输入 URL 到整个网页加载完毕及显示在屏幕上的整个流程 - ChartAI3.5
+## 从输入 URL 到整个网页加载完毕及显示在屏幕上的整个流程
 
 1. **URL 输入**: 用户在浏览器的地址栏输入一个URL。
 
@@ -57,71 +57,67 @@
 
 此流程可能因浏览器、服务器配置和其他因素而略有不同，但大体上的步骤是相似的。
 
-## Long-Polling - ChartAI3.5
+## Long-Polling、WebSockets 和 Server-Sent Event 之间有什么区别？
+
+### Long-Polling
 
 Long-Polling 是一种在 Web 应用中实现实时功能的技术。其基本思想是客户端发起一个到服务器的请求，并等待服务器的响应。当服务器有新的数据可用时，它会发送一个响应给客户端。客户端处理完这个响应后，会立即发起另一个请求，等待服务器的下一个响应。
 
-### 示例
-
 ```javascript
 function poll() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/server-data', true);
-    xhr.onload = function() {
-        if (xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText);
-            console.log(data);
-            // 处理数据后再次轮询
-            poll();
-        }
-    };
-    xhr.send();
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/server-data', true);
+  xhr.onload = function() {
+    if (xhr.status == 200) {
+      var data = JSON.parse(xhr.responseText);
+      console.log(data);
+      // 处理数据后再次轮询
+      poll();
+    }
+  };
+  xhr.send();
 }
 
 poll();
 ```
 
-## WebSockets - ChartAI3.5
+### WebSockets
 
 WebSockets 是一种在单个 TCP 连接上进行全双工通信的协议。它允许服务器和客户端之间进行双向通信，这意味着服务器可以在任何时候向客户端发送数据，而无需客户端首先发起请求。
-
-### 示例
 
 ```javascript
 var socket = new WebSocket('ws://example.com/socket-endpoint');
 
 socket.onopen = function(event) {
-    console.log('Connection opened');
+  console.log('Connection opened');
 
-    socket.send('Hello, Server!');
+  socket.send('Hello, Server!');
 };
 
 socket.onmessage = function(event) {
-    var data = event.data;
-    console.log('Received from server:', data);
+  var data = event.data;
+  console.log('Received from server:', data);
 };
 
 socket.onclose = function(event) {
-    console.log('Connection closed');
+  console.log('Connection closed');
 };
 ```
 
-## Server-Sent Event (SSE) - ChartAI3.5
+### Server-Sent Event (SSE)
 
 SSE 也称为 EventSource，是一种只允许服务器向客户端发送数据的技术。与 WebSockets 不同，SSE 是单向的。它在一个持久的 HTTP 连接上工作，并使用标准的 HTTP 协议。这使得 SSE 在某些场景下，如只需要服务器到客户端的通信时，成为一个简单且有用的选择。
-
-### 示例
 
 ```javascript
 var evtSource = new EventSource("/server-events");
 
 evtSource.onmessage = function(event) {
-    var data = event.data;
-    console.log('Received from server:', data);
+  var data = event.data;
+  console.log('Received from server:', data);
 };
 
 evtSource.onerror = function(event) {
-    console.error('EventSource failed:', event);
+  console.error('EventSource failed:', event);
 };
 ```
 
@@ -130,9 +126,9 @@ evtSource.onerror = function(event) {
   - **WebSockets**：建立一个持久的、双向的连接，允许服务器和客户端之间相互发送数据。
   - **Server-Sent Event**：只允许服务器向客户端发送数据的技术，在一个持久的 HTTP 连接上运作。
 
-希望这个详细的解释能帮助你理解这三种技术之间的区别。
+## request 和 response headers
 
-## Diff. between Expires, Date, Age and If-Modified-... - ChartAI3.5
+### Diff. between Expires, Date, Age and If-Modified-
 
 HTTP headers 是从服务器到浏览器或从浏览器到服务器传递信息的关键方式。以下是关于 `Expires`, `Date`, `Age` 和 `If-Modified-...` 这些头部的详细描述：
 
@@ -152,27 +148,27 @@ HTTP headers 是从服务器到浏览器或从浏览器到服务器传递信息�
    - `If-Modified-Since` 请求头使得客户端可以基于该资源上一次被修改的时间来请求该资源。这可以减少不必要的网络流量，因为只有在资源在上次获取后已被修改时，服务器才会返回新的资源。
    - 示例：`If-Modified-Since: Sat, 29 Oct 2022 19:43:31 GMT`
 
-## Do Not Track - ChartAI3.5
+### Do Not Track
 
 - `Do Not Track` 请求头是一个浏览器可以设置的头，表示用户不希望其浏览行为被任何网站追踪。
 - 示例：`DNT: 1` (1 表示不追踪)
 
-## Cache-Control - ChartAI3.5
+### Cache-Control
 
 - `Cache-Control` 响应头控制了浏览器和其他中间代理如何缓存和再验证响应。
 - 示例：`Cache-Control: no-store, no-cache, must-revalidate`
 
-## Transfer-Encoding - ChartAI3.5
+### Transfer-Encoding
 
 - `Transfer-Encoding` 响应头指明了消息体的传输编码方式。比如 "chunked" 表示数据是分块发送的。
 - 示例：`Transfer-Encoding: chunked`
 
-## ETag - ChartAI3.5
+### ETag
 
 - `ETag` 响应头提供了一个资源的版本标识，通常是内容的哈希值或版本号。配合 `If-None-Match` 请求头，它可以帮助浏览器判断缓存的资源是否仍然是最新的。
 - 示例：`ETag: "737060cd8c284d8af7ad3082f209582d"`
 
-## X-Frame-Options - ChartAI3.5
+### X-Frame-Options
 
 - `X-Frame-Options` 响应头可以用来指明浏览器应该如何处理一个网页中的 `<frame>`, `<iframe>`, `<embed>` 和 `<applet>` 元素。它可以防止点击劫持攻击。
 - 示例：`X-Frame-Options: SAMEORIGIN`
@@ -197,7 +193,7 @@ fetch('https://example.com/api/resource', {
 
 这个示例发送一个带有 `If-Modified-Since` 请求头的请求，并在响应中检索 `ETag` 头。
 
-## HTTP Method - ChartAI3.5
+## HTTP Method
 
 HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的资源执行的操作。每次发送 HTTP 请求时，都会使用其中之一的方法。
 
@@ -207,7 +203,7 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
     ```javascript
     fetch('/example', {
-        method: 'GET'
+      method: 'GET'
     });
     ```
 
@@ -215,8 +211,8 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
     ```javascript
     fetch('/example', {
-        method: 'POST',
-        body: JSON.stringify(data)
+      method: 'POST',
+      body: JSON.stringify(data)
     });
     ```
 
@@ -224,8 +220,8 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
     ```javascript
     fetch('/example/resource-id', {
-        method: 'PUT',
-        body: JSON.stringify(data)
+      method: 'PUT',
+      body: JSON.stringify(data)
     });
     ```
 
@@ -233,7 +229,7 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
     ```javascript
     fetch('/example/resource-id', {
-        method: 'DELETE'
+      method: 'DELETE'
     });
     ```
 
@@ -241,8 +237,8 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
     ```javascript
     fetch('/example/resource-id', {
-        method: 'PATCH',
-        body: JSON.stringify(data)
+      method: 'PATCH',
+      body: JSON.stringify(data)
     });
     ```
 
@@ -256,7 +252,7 @@ HTTP 方法是 HTTP 协议中定义的一套动作，用于表示要对给定的
 
 这些方法有时也被称为 HTTP 动词。每个方法明确指示了对资源的预期行为。
 
-## HTTP Status 301 与 302 的区别 - ChartAI3.5
+## HTTP Status 301 与 302 的区别
 
 HTTP 状态代码是由三位数字组成的，用于表示 Web 服务器处理请求的结果。特定的两个状态代码，301 和 302，与 URL 重定向相关。
 
@@ -269,5 +265,3 @@ HTTP 状态代码是由三位数字组成的，用于表示 Web 服务器处理�
 1. **持久性**：301 是永久移动，而 302 是临时移动。
 2. **搜索引擎优化**：从 SEO 的角度看，301 重定向意味着旧页面的“链接权重”或“页面权威”会转移到新的 URL，而 302 则不会。
 3. **浏览器行为**：在某些情况下，浏览器可能会缓存 301 重定向，而对于 302 重定向则不一定。
-
-希望这些解释可以帮助你更好地理解 HTTP 方法以及 301 和 302 的区别。
