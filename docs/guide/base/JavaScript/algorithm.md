@@ -92,7 +92,7 @@
 
 按照常识理解就是有序的挤公交，**最后上车**的人会在门口，然后门口的人会**最先下车**
 
-![image.png](/img/algorithm/p0.webp)
+![image.png](/img/algorithm/p.webp)
 
 > js中没有栈的数据类型，但我们可以通过**Array来模拟一个**
 
