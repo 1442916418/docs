@@ -183,7 +183,7 @@ const isValid = (s) => {
 
 按照常识理解就是银行排号办理业务, **先去**领号排队的人, **先办理**业务
 
-![image.png](/img/algorithm/p1.awebp)
+![image.png](/img/algorithm/p1.webp)
 
 > 同样 js中没有栈的数据类型，但我们可以通过 **Array来模拟一个**
 
@@ -237,7 +237,7 @@ RecentCounter.prototype.ping = function (t) {
 
 就类似于 **父辈链接关系** 吧， 比如：你爷爷的儿子是你爸爸，你爸爸的儿子是你，而你假如目前还没有结婚生子，那你就暂时木有儿子
 
-![image.png](/img/algorithm/p2.awebp)
+![image.png](/img/algorithm/p2.webp)
 
 > js中类似于链表的典型就是原型链, 但是js中没有链表这种数据结构，我们可以通过一个 **object来模拟链表**
 
