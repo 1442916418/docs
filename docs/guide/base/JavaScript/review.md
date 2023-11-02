@@ -902,7 +902,7 @@ console.log(1 + parseInt('6'));
 
 ## 什么是NaN？ 以及如何检查值是否为NaN？
 
-**NaN** 表示**“非数字”**，是JavaScript中的一个特殊值，通常是将数字转换或执行为非数字值的运算结果，因此结果为NaN。
+**NaN** 表示**非数字**，是JavaScript中的一个特殊值，通常是将数字转换或执行为非数字值的运算结果，因此结果为NaN。
 
 ```javascript
 console.log(parseInt('abc')); // NaN

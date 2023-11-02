@@ -236,11 +236,11 @@ CSS 盒子模型本质上是一个包含边距、边框、填充和实际内容�
 
 - **标准盒模型：** 一个块的总宽度 = `width + margin (左右) + padding (左右) + border (左右)`
 
-![content-box](/img/content-box.png)
+![content-box.webp](https://i.postimg.cc/G2rxY00f/content-box.webp)
 
 - **怪异盒模型：** 一个块的总宽度 = `width + margin (左右)`（即 `width` 已经包含了 `padding` 和 `border` 值）
 
-![border-box](/img/border-box.png)
+![border-box](https://i.postimg.cc/JzfqrDpM/border-box.webp)
 
 ## BFC（块级格式上下文）
 

@@ -92,7 +92,7 @@
 
 按照常识理解就是有序的挤公交，**最后上车**的人会在门口，然后门口的人会**最先下车**
 
-![image.png](/img/algorithm/p.webp)
+![image.png](https://i.postimg.cc/ZRvk2ys3/p.webp)
 
 > js中没有栈的数据类型，但我们可以通过**Array来模拟一个**
 
@@ -183,7 +183,7 @@ const isValid = (s) => {
 
 按照常识理解就是银行排号办理业务, **先去**领号排队的人, **先办理**业务
 
-![image.png](/img/algorithm/p1.webp)
+![image.png](https://i.postimg.cc/SQ8FGCMb/p1.webp)
 
 > 同样 js中没有栈的数据类型，但我们可以通过 **Array来模拟一个**
 
@@ -237,7 +237,7 @@ RecentCounter.prototype.ping = function (t) {
 
 就类似于 **父辈链接关系** 吧， 比如：你爷爷的儿子是你爸爸，你爸爸的儿子是你，而你假如目前还没有结婚生子，那你就暂时木有儿子
 
-![image.png](/img/algorithm/p2.webp)
+![image.png](https://i.postimg.cc/pLsgdBgz/p2.webp)
 
 > js中类似于链表的典型就是原型链, 但是js中没有链表这种数据结构，我们可以通过一个 **object来模拟链表**
 
@@ -693,7 +693,7 @@ const bfs = (tree) => {
 
 树中每个节点**最多只能有两个子节点**
 
-![img](/img/algorithm/p3.webp)
+![img](https://i.postimg.cc/jdQppTc8/p3.webp)
 
 ```js
 const bt = {
@@ -760,7 +760,7 @@ const preOrder2 = (tree) => {
 - 访问根节点  
 - 对根节点的右子树进行中序遍历  
 
-![img](/img/algorithm/p4.webp)
+![img](https://i.postimg.cc/K8G6FWsm/p4.webp)
 
 ```js
 // 中序遍历 递归
@@ -800,7 +800,7 @@ const inOrder2 = (tree) => {
 - 对根节点的右子树进行后序遍历  
 - 访问根节点
 
-![img](/img/algorithm/p5.webp)
+![img](https://i.postimg.cc/QCLL3xvz/p5.webp)
 
 ```javascript
 // 后序遍历 递归
@@ -888,7 +888,7 @@ var minDepth = function (root) {
 
 ##### 二叉树的层序遍历
 
-![img](/img/algorithm/p6.webp)
+![img](https://i.postimg.cc/tCj0vJ3Z/p6.webp)
 
 ```javascript
 // 需要返回 [[1], [2,3], [4,5]]
@@ -927,7 +927,7 @@ var levelOrder = function (root) {
 
 > js中可以利用**Object和Array构建图**
 
-![图.png](/img/algorithm/p7.webp)
+![图.png](https://i.postimg.cc/GtvWhnCm/p7.webp)
 
 ```js
 // 上图可以表示为
@@ -1037,7 +1037,7 @@ var isNumber = function (s) {
 - 右侧子节点的位置是 2*index + 2  
 - 父节点的位置是 (index - 1) / 2 , 取余数  
 
-![img](/img/algorithm/p8.webp)
+![img](https://i.postimg.cc/SKjHYMh5/p8.webp)
 
 #### JS实现一个最小堆
 
