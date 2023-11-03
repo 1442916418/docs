@@ -29,7 +29,10 @@ export default {
       },
       {
         text: '代码片段/库',
-        items: [{ text: 'Three.js', link: '/guide/code-snippet/three/index' }]
+        items: [
+          { text: 'Three.js', link: '/guide/code-snippet/three/index' },
+          { text: 'ECharts.js', link: '/guide/code-snippet/echarts/index' }
+        ]
       },
       {
         text: '记录',
