@@ -184,7 +184,7 @@ console.log(d.greeting)
 
 首先，变量 `c` 的值是一个对象。接下来，我们给 `d` 分配了一个和 `c` 对象相同的引用。
 
-<img src="https://i.postimg.cc/261qt2fw/ko5k0fs.png" width="200">
+<img src="https://i.postimg.cc/261qt2fw/ko5k0fs.png" >
 
 因此当我们改变其中一个对象时，其实是改变了所有的对象。
 
@@ -405,7 +405,7 @@ console.log(sarah)
 
 在**捕获**（capturing）阶段中，事件从祖先元素向下传播到目标元素。当事件达到**目标**（target）元素后，**冒泡**（bubbling）才开始。
 
-<img src="https://i.postimg.cc/MTgcJV68/N18oRgd.png" width="200">
+<img src="https://i.postimg.cc/MTgcJV68/N18oRgd.png" >
 
 </p>
 </details>
@@ -883,24 +883,24 @@ baz()
 
 将 *callback* 推送到 WebAPI 后，`setTimeout` 函数本身 (但不是回调！) 将从栈中弹出。
 
-<img src="https://i.postimg.cc/gjRxzjjL/X5wsHOg.png" width="200">
+<img src="https://i.postimg.cc/gjRxzjjL/X5wsHOg.png" >
 
 现在，`foo` 被调用，打印 `"First"`。
 
-<img src="https://i.postimg.cc/h47zbys4/Pvc0dGq.png" width="200">
+<img src="https://i.postimg.cc/h47zbys4/Pvc0dGq.png" >
 
 `foo` 从栈中弹出，`baz` 被调用。打印 `"Third"`。
 
-<img src="https://i.postimg.cc/tCQ1r3v3/WhA2bCP.png" width="200">
+<img src="https://i.postimg.cc/tCQ1r3v3/WhA2bCP.png" >
 
 WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 *queue* 的地方。
 
-<img src="https://i.postimg.cc/65r8F8FD/NSnDZmU.png" width="200" >
+<img src="https://i.postimg.cc/65r8F8FD/NSnDZmU.png"  >
 
 这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。
 
-<img src="https://i.postimg.cc/K8m1bZ24/uyiScAI.png" width="200" >
- 
+<img src="https://i.postimg.cc/K8m1bZ24/uyiScAI.png"  >
+
 `bar` 被调用，打印 `"Second"`，然后它被栈弹出。
 
 </p>
@@ -1366,15 +1366,15 @@ console.log(members);
 
 首先我们声明了一个拥有`name`属性的对象 `person`。
 
-<img src="https://i.postimg.cc/4xwmNrfP/TML1MbS.png" width="200" >
+<img src="https://i.postimg.cc/4xwmNrfP/TML1MbS.png"  >
 
 然后我们又声明了一个变量`members`. 将首个元素赋值为变量`person`。当设置两个对象彼此相等时，它们会通过 *引用* 进行交互。但是当你将引用从一个变量分配至另一个变量时，其实只是执行了一个 *复制* 操作。（注意一点，他们的引用 *并不相同*!）
 
-<img src="https://i.postimg.cc/HLxjJBjg/FSG5K3F.png" width="300" >
+<img src="https://i.postimg.cc/HLxjJBjg/FSG5K3F.png" >
 
 接下来我们让`person`等于`null`。
 
-<img src="https://i.postimg.cc/SKvRcCzz/sYjcsMT.png" width="300" >
+<img src="https://i.postimg.cc/SKvRcCzz/sYjcsMT.png" >
 
 我们没有修改数组第一个元素的值，而只是修改了变量`person`的值，因为元素（复制而来）的引用与`person`不同。`members`的第一个元素仍然保持着对原始对象的引用。当我们输出`members`数组时，第一个元素会将引用的对象打印出来。
 
@@ -1794,7 +1794,7 @@ console.log(y);
 [a, b] = [1, 2];
 ```
 
-<img src="https://i.postimg.cc/26L6Gy49/ADFpVop.png" width="200" >
+<img src="https://i.postimg.cc/26L6Gy49/ADFpVop.png"  >
 
 `a`的值现在是`1`，`b`的值现在是`2`.而在题目中，我们是这么做的：
 
@@ -1802,8 +1802,7 @@ console.log(y);
 [y] = [1, 2, 3, 4, 5];
 ```
 
-<img src="https://i.postimg.cc/QCLMyDm8/NzGkMNk.png" width="200" >
-
+<img src="https://i.postimg.cc/QCLMyDm8/NzGkMNk.png"  >
 
 也就是说，`y`等于数组的第一个值就是数字`1`.我们输出`y`，返回`1`.
 
@@ -4227,13 +4226,13 @@ console.log(counterOne.count);
 
 `counterOne` 是类 `Counter` 的一个实例。类 Counter 包含一个`count` 属性在它的构造函数里，和一个 `increment` 方法。首先，我们通过 `counterOne.increment()` 调用方法 `increment` 两次。现在，`counterOne.count` 为 `2`.
 
-<img src="https://i.postimg.cc/Gtkp0fgk/KxLlTm9.png" width="400" >
+<img src="https://i.postimg.cc/Gtkp0fgk/KxLlTm9.png" >
 
 然后，我们创建一个新的变量 `counterTwo` 并将 `counterOne` 的引用地址赋值给它。因为对象受引用地址的影响，我们刚刚创建了一个新的对象，其引用地址和 `counterOne` 的等价。因此它们指向同一块内存地址，任何对其的副作用都会影响 `counterTwo`。现在 `counterTwo.count` 为 `2`。
 
 我们调用 `counterTwo.increment()` 将 `count` 的值设为 `3`。然后，我们打印 `counterOne` 里的 count，结果为 `3`。
 
-<img src="https://i.postimg.cc/T2m1Wy2p/BNBHXmc.png" width="400" >
+<img src="https://i.postimg.cc/T2m1Wy2p/BNBHXmc.png" >
 
 </p>
 </details>

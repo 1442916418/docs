@@ -1,4 +1,4 @@
-# JavaScript 复习 - ChartAI
+# JS 相关问题 - ChatGPT
 
 ## 事件代理 (Event Delegation)
 

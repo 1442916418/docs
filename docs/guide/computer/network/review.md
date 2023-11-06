@@ -75,7 +75,7 @@ Accept-Ranges: bytes  // 指定服务器接受的范围类型，通常用于断�
 Content-Length: 374  // 响应正文的长度（以字节为单位）。
 Cache-Control: max-age=3600, public  // 指定缓存指令，告诉客户端如何缓存响应内容。
 Content-Type: text/html; charset=UTF-8  // 响应内容的MIME类型和字符集。
-Connection: close  // 响应内容的MIME类型和字符集。
+Connection: close  // 响应头用来告诉客户端服务器想要如何处理网络连接。
 ```
 
 ### HTTP请求跨域问题
@@ -320,7 +320,7 @@ TCP粘包是指发送方发送的多个包，在接收方被接收时合并为�
 
 为了进一步理解，我们可以分析下图的简化流程：
 
-![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05b3fe9c411f4881a8b22fe37eae170b~tplv-k3u1fbpfcp-zoom-1.image)
+![图片](https://i.postimg.cc/Y9mtgc9b/05b3fe9c411f4881a8b22fe37eae170b-tplv-k3u1fbpfcp-zoom-1.webp)
 
 从上图我们可以得知：
 
@@ -348,7 +348,7 @@ TCP粘包是指发送方发送的多个包，在接收方被接收时合并为�
     1. 服务器认为缓存仍然有效，返回HTTP 304状态码，告诉浏览器可以使用缓存。
     2. 服务器认为缓存已经过期或无效，返回HTTP 200状态码和新的请求结果。
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e0ce991db4847b98d9f049f9ffa5c93~tplv-k3u1fbpfcp-watermark.image)
+![image.png](https://i.postimg.cc/PrHdLRkQ/5e0ce991db4847b98d9f049f9ffa5c93-tplv-k3u1fbpfcp-watermark.png)
 
 更多详细信息，请访问：[彻底理解浏览器的缓存机制](https://juejin.cn/post/6992843117963509791)
 
@@ -485,7 +485,7 @@ HTTP 1.1 是 HTTP 1.0 开发三年后出现的，也就是 1999 年，它做出�
 
 HTTP 2.0 是 2015 年开发出来的标准，HTTP/2 的一个核心特性是使用了 多路复用技术，因此它可以 通过一个 TCP 连接来发送多个 URL 请求。多路复用技术能充分利用带宽，最大限度规避了 TCP 的慢启动所带来的问题。
 
-- 头部压缩**
+- 头部压缩
   - 由于 HTTP 1.1 经常会出现 User-Agent、Cookie、Accept、Server、Range 等字段可能会占用几百甚至几千字节，而 Body 却经常只有几十字节，所以导致**头部偏重**。
   - HTTP 2.0 使用 HPACK 算法进行压缩。
 - 二进制格式
@@ -506,7 +506,7 @@ HTTP/3 选择了一个折衷的方法——UDP 协议，基于 UDP 实现了类�
 
 - 实现了类似 TCP 的流量控制、传输可靠性的功能。虽然 UDP 不提供可靠性的传输，但 QUIC 在 UDP 的基础之上增加了一层来保证数据可靠性传输。它提供了数据包重传、拥塞控制以及其他一些 TCP 中存在的特性。
 - 集成了 TLS 加密功能。目前 QUIC 使用的是 TLS1.3，相较于早期版本 TLS1.2 有更多的优点，其中最重要的一点是**减少了握手所花费的 RTT 个数**。
-- 实现了 HTTP/2 中的多路复用功能。和 TCP 不同，QUIC 实现了在**同一物理连接上可以有多个独立的逻辑数据流**（如下图）。实现了数据流的单独传输，就解决了 TCP 中的问题。
+- 实现了 HTTP/2 中的多路复用功能。和 TCP 不同，QUIC 实现了在**同一物理连接上可以有多个独立的逻辑数据流**。实现了数据流的单独传输，就解决了 TCP 中的问题。
 - 实现了快速握手功能。由于 QUIC 是基于 UDP 的，所以 QUIC 可以实现使用 0-RTT 或者 1-RTT 来建立连接，这意味着 QUIC 可以用最快的速度来发送和接收数据，这样可以大大提升首次打开页面的速度。
 
 ## WebSocket 协议

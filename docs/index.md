@@ -6,7 +6,7 @@ hero:
   text: 希望通过我的文档，可以为大家提供一些帮助和启示。
   tagline: 您可以根据自己的实际情况进行修改或直接使用。希望对您有所帮助！
   image:
-    src: https://i.postimg.cc/Z5vqPC49/home-bg.png
+    src: https://i.postimg.cc/BvPjS4bN/home-bg1.png
     alt: Hello
   actions:
     - theme: brand

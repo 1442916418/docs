@@ -10,7 +10,8 @@ export default {
         items: [
           { text: 'HTML', link: '/guide/base/HTML/index' },
           { text: 'CSS', link: '/guide/base/CSS/index' },
-          { text: 'JavaScript', link: '/guide/base/JavaScript/index' }
+          { text: 'JavaScript', link: '/guide/base/JavaScript/index' },
+          { text: '问题', link: '/guide/base/questions/index' }
         ]
       },
       {
