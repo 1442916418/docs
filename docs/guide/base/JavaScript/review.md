@@ -13,8 +13,6 @@
 - Symbol：使用Symbol作为对象属性名（key）。利用该特性，可以定义一些不需要对外操作和访问的属性。
 - BigInt：由于在Number与BigInt之间进行转换会损失精度，因此建议仅在值可能大于2^53时使用BigInt类型，并且不在两种类型之间进行相互转换。
 
-[JavaScript 数据类型之 Symbol、BigInt](https://juejin.cn/post/7000754813801775111)
-
 ## JS中的数据类型检测方案
 
 - **typeof**
@@ -396,70 +394,6 @@ for (let i = 0; i < 5; i++) {
 
 - 节流：滚动加载更多、搜索框联想搜索、高频点击、防止表单重复提交等。
 - 防抖：搜索框搜索自动联想、手机号和邮箱验证、窗口大小变化重新渲染等。
-
-## 处理浮点数精度问题
-
-处理浮点数精度问题的一种常见方法是将需要计算的数字升级（乘以 10 的 n 次幂）成计算机能够精确识别的整数，等计算完成后再进行降级（除以 10 的 n 次幂）。具体操作如下：
-
-```javascript
-(0.1 * 10 + 0.2 * 10) / 10 == 0.3 // true
-```
-
-```javascript
-function calculate(op, arg1, arg2) {
-  function getDigits(num) {
-    let digits;
-    try {
-      digits = num.toString().split('.')[1].length || 0;
-    } catch {
-      digits = 0;
-    }
-    
-    return digits;
-  }
-
-  function mul(m1, m2) {
-    let digits = 0;
-    const s1 = m1.toString();
-    const s2 = m2.toString();
-    try {
-      digits += s1.split('.')[1].length;
-    } catch {}
-    try {
-      digits += s2.split('.')[1].length;
-    } catch {}
-
-    return (Number(s1.replace(/\./, '')) * Number(s2.replace(/\./, ''))) / 10 ** digits;
-  }
-
-  let digits1 = getDigits(arg1);
-  let digits2 = getDigits(arg2);
-  let maxDigits = 10 ** Math.max(digits1, digits2);
-
-  switch (op) {
-    case "add":
-      return (mul(arg1, maxDigits) + mul(arg2, maxDigits)) / maxDigits;
-    case "sub":
-      return (mul(arg1, maxDigits) - mul(arg2, maxDigits)) / maxDigits;
-    case "mul":
-      return mul(arg1, arg2);
-    case "div":
-      let int1 = Number(arg1.toString().replace(/\./, ''));
-      let int2 = Number(arg2.toString().replace(/\./, ''));
-      return ((int1 / int2) * 10) ** (digits2 - digits1 || 1);
-    default:
-      throw new Error("Invalid operation specified.");
-  }
-}
-
-// 示例
-console.log(calculate("add", 1.2, 2.3));  // 3.5
-console.log(calculate("sub", 1.2, 0.2));  // 1
-console.log(calculate("mul", 1.2, 2.3));  // 2.76
-console.log(calculate("div", 1.2, 2));    // 0.6
-```
-
-推荐库 [`bignumber.js`](https://mikemcl.github.io/bignumber.js/)、[`decimal.js`](http://mikemcl.github.io/decimal.js/)、以及 [`big.js`](http://mikemcl.github.io/big.js/) 等，这些库不仅解决了浮点数的运算精度问题，还支持了大数运算，并且修复了原生 toFixed 结果不准确的问题。我们可以根据自己的需求来选择对应的工具。
 
 ## 数组的常用方法
 
@@ -1266,18 +1200,4 @@ function allSettled(promises = []) {
     });
   });
 }
-```
-
-## 如何创建一个数组大小为100，每个值都为0的数组
-
-```javascript
-// 方法一:
-Array(100).fill(0);
- 
-// 方法二:
-// 注: 如果直接使用 map，会出现稀疏数组
-Array.from(Array(100), (x) => 0);
- 
-// 方法二变体:
-Array.from({ length: 100 }, (x) => 0);
 ```

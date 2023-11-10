@@ -711,3 +711,17 @@ original.b.c = 3;
 
 console.log(copy.b.c); // 输出 2，因为是深拷贝
 ```
+
+## 如何创建一个数组大小为100，每个值都为0的数组
+
+```javascript
+// 方法一:
+Array(100).fill(0);
+ 
+// 方法二:
+// 注: 如果直接使用 map，会出现稀疏数组
+Array.from(Array(100), (x) => 0);
+ 
+// 方法二变体:
+Array.from({ length: 100 }, (x) => 0);
+```
