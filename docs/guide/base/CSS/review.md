@@ -297,15 +297,11 @@ CSS 盒子模型本质上是一个包含边距、边框、填充和实际内容�
 
 - **垂直居中**
 
-    1. 利用 `line-height` 实现居中，适合纯文本元素。
-    1. 通过设置父容器相对定位，子元素设置绝对定位，并使用 `margin` 实现自适应居中。
-    1. 弹性布局 `flex`：父元素设置 `display: flex;` 子元素设置 `margin` 为 `auto` 实现自适应居中。
-    1. 父元素设置相对定位，子元素设置绝对定位，并使用 `transform` 进行位移来实现。
-    1. `table布局`：父元素通过转换成表格形式，然后子元素设置 `vertical-align` 实现。（需要注意的是：`vertical-align: middle` 使用的前提条件是内联元素以及 `display` 值为 `table
-
--cell` 的元素）。
-
-[传送门 ☞ # 图解CSS水平垂直居中常见面试方法](https://juejin.cn/post/7008348524530106381)】
+    1. 利用 `line-height` 实现居中，适合纯文本元素。  
+    2. 通过设置父容器相对定位，子元素设置绝对定位，并使用 `margin` 实现自适应居中。  
+    3. 弹性布局 `flex`：父元素设置 `display: flex;` 子元素设置 `margin` 为 `auto` 实现自适应居中。  
+    4. 父元素设置相对定位，子元素设置绝对定位，并使用 `transform` 进行位移来实现。  
+    5. `table布局`：父元素通过转换成表格形式，然后子元素设置 `vertical-align` 实现。（需要注意的是：`vertical-align: middle` 使用的前提条件是内联元素以及 `display` 值为 `table-cell` 的元素）。
 
 ## 隐藏页面中某个元素的方法
 
