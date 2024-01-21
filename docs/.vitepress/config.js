@@ -4,13 +4,14 @@ export default {
   description: 'HTML、CSS、JavaScript文档...',
   themeConfig: {
     nav: [
-      { text: '导航', link: '/guide/index' },
+      // { text: '导航', link: '/guide/index' },
       {
         text: '基础',
         items: [
           { text: 'HTML', link: '/guide/base/HTML/index' },
           { text: 'CSS', link: '/guide/base/CSS/index' },
-          { text: 'JavaScript', link: '/guide/base/JavaScript/index' }
+          { text: 'JavaScript', link: '/guide/base/JavaScript/index' },
+          { text: '问题', link: '/guide/base/questions/index' }
         ]
       },
       {
@@ -29,7 +30,14 @@ export default {
       },
       {
         text: '代码片段/库',
-        items: [{ text: 'Three.js', link: '/guide/code-snippet/three/index' }]
+        items: [
+          { text: 'Three.js', link: '/guide/code-snippet/three/index' },
+          { text: 'ECharts.js', link: '/guide/code-snippet/echarts/index' }
+        ]
+      },
+      {
+        text: '记录',
+        link: '/guide/records/index'
       }
     ],
     // editLink: {
@@ -46,7 +54,8 @@ export default {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2023-present Evan You'
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/1442916418/docs/' }]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/1442916418/docs/' }],
+    outline: 'deep'
   },
   markdown: {
     lineNumbers: true

@@ -31,13 +31,11 @@ vue.js 采用数据劫持结合发布者-订阅者模式，通过`Object.defineP
 
 **Compile（指令解析器）**：Compile的工作是解析模板指令，替换模板中的变量为实际数据，并初始化页面渲染。同时，它将每个指令对应的节点绑定更新函数，并添加对应数据的订阅者。当数据变化时，更新视图。
 
-[传送门：☞ 20分钟吃透Diff算法核心原理](https://juejin.cn/post/6994959998283907102#heading-2)
-
 ## 谈谈对vue生命周期的理解？
 
 每个`Vue`实例在创建时都会经历一系列的初始化过程，这些过程中的特定时刻都定义了相应的生命周期钩子，允许用户在这些时刻加入自己的代码。
 
-![Vue2 生命周期](/img/vue2-life-cycle.webp)
+![Vue2 生命周期](https://i.postimg.cc/j5bY7jSr/vue2-life-cycle.webp)
 
 - **创建阶段**：
   - `beforeCreate`: 在实例初始化后，数据观测和事件配置之前被调用。
@@ -64,17 +62,17 @@ Vue 的组件有其生命周期，从创建到销毁会经历一系列的过程�
 - `父beforeCreate`
 - `父created`
 - `父beforeMount`
-- `子beforeCreate`
-- `子created`
-- `子beforeMount`
-- `子mounted`
+  - `子beforeCreate`
+  - `子created`
+  - `子beforeMount`
+  - `子mounted`
 - `父mounted`
 
 **挂载阶段：**
 
 - `父created`
-- `子created`
-- `子mounted`
+  - `子created`
+  - `子mounted`
 - `父mounted`
 
 **父组件更新阶段：**
@@ -85,18 +83,16 @@ Vue 的组件有其生命周期，从创建到销毁会经历一系列的过程�
 **子组件更新阶段：**
 
 - `父beforeUpdate`
-- `子beforeUpdate`
-- `子updated`
+  - `子beforeUpdate`
+  - `子updated`
 - `父updated`
 
 **组件销毁阶段：**
 
 - `父beforeDestroy`
-- `子beforeDestroy`
-- `子destroyed`
+  - `子beforeDestroy`
+  - `子destroyed`
 - `父destroyed`
-
----
 
 ## `computed` 与 `watch`
 
@@ -185,7 +181,6 @@ Vue 的组件有其生命周期，从创建到销毁会经历一系列的过程�
       </script>
 
       <!-- ChildComponent.vue -->
-
       <template>
         <button @click="sendEventToParent">Click Me</button>
       </template>
@@ -474,74 +469,117 @@ Vue 的组件有其生命周期，从创建到销毁会经历一系列的过程�
     - **属性和监听器传递**: 使用 `$attrs` 和 `$listeners` 进行非直接父子关系的组件通信。
 
       ```vue
-      <!-- 使用 $attrs 透传属性 -->
-      <!-- WrapperComponent.vue -->
+      <!-- index.vue -->
       <template>
-        <ButtonComponent v-bind="$attrs" />
+        <div>
+          <child-com1
+            :foo="foo"
+            :boo="boo"
+            :coo="coo"
+            :doo="doo"
+            @one.native="triggerOne"
+            @two="triggerTwo"
+            title="Vue通信"
+          ></child-com1>
+        </div>
       </template>
 
       <script>
-      import ButtonComponent from './ButtonComponent.vue';
+      const childCom1 = () => import("./childCom1.vue");
 
       export default {
-        components: {
-          ButtonComponent
+        components: { childCom1 },
+        data() {
+          return {
+            foo: "Javascript",
+            boo: "Html",
+            coo: "CSS",
+            doo: "Vue"
+          };
         },
-        inheritAttrs: false // 防止 attribute 被设置在 WrapperComponent 的根元素上
-      };
-      </script>
-      <!-- ButtonComponent.vue -->
-      <template>
-        <button :type="type">{{ label }}</button>
-      </template>
-
-      <script>
-      export default {
-        props: {
-          label: String,
-          type: {
-            type: String,
-            default: 'button'
+        methods:{
+          triggerOne(){
+            alert('one')
+          },
+          triggerTwo(){
+            alert('two')
           }
         }
       };
       </script>
 
-      <!-- 使用 $listeners 透传事件 -->
-      <!-- WrapperComponent.vue -->
-      <template>
-        <ButtonComponent v-bind="$attrs" v-on="$listeners" />
+      <!-- childCom1.vue -->
+      <template class="border">
+        <div>
+          <p>foo: {{ foo }}</p>
+          <p>childCom1的$attrs: {{ $attrs }}</p>
+          <child-com2 v-bind="$attrs" v-on="$listeners"></child-com2>
+        </div>
       </template>
 
       <script>
-      import ButtonComponent from './ButtonComponent.vue';
+      const childCom2 = () => import("./childCom2.vue");
 
       export default {
         components: {
-          ButtonComponent
+          childCom2
         },
-        inheritAttrs: false // 防止 attribute 被设置在 WrapperComponent 的根元素上
+        // 默认为true，如果传入的属性子组件没有prop接受，就会以字符串的形式出现为标签属性
+        // 设为false，在dom中就看不到这些属性
+        inheritAttrs: false, // 可以关闭自动挂载到组件根元素上的没有在props声明的属性
+        props: {
+          foo: String // foo作为props属性绑定
+        },
+        mounted() {
+          console.log(this.$attrs); // { "boo": "Html", "coo": "CSS", "doo": "Vue", "title": "Vue通信" }
+          console.log(this.$listeners);
+        }
       };
       </script>
 
-      <!-- ButtonComponent.vue -->
+      <!-- childCom2.vue -->
       <template>
-        <button :type="type" @click="handleClick">{{ label }}</button>
+        <div class="border">
+          <p>boo: {{ boo }}</p>
+          <p>childCom2的$attrs: {{ $attrs }}</p>
+          <child-com3 v-bind="$attrs" v-on="$listeners"></child-com3>
+        </div>
+      </template>
+
+      <script>
+      const childCom3 = () => import("./childCom3.vue");
+
+      export default {
+        components: {
+          childCom3
+        },
+        inheritAttrs: false,
+        props: {
+          boo: String
+        },
+        mounted() {
+          console.log(this.$attrs); // {"coo": "CSS", "doo": "Vue", "title": "Vue通信" }
+          console.log(this.$listeners);
+        }
+      };
+      </script>
+
+      <!-- childCom3.vue -->
+      <template>
+        <div class="border">
+          <p>childCom3: {{ $attrs }}</p>
+        </div>
       </template>
 
       <script>
       export default {
         props: {
-          label: String,
-          type: {
-            type: String,
-            default: 'button'
-          }
+          coo: String,
+          title: String
         },
-        methods: {
-          handleClick() {
-            this.$emit('click', 'button clicked!'); // This will be captured by any listener on the parent WrapperComponent
-          }
+        mounted() {
+          console.log(this.$listeners);
+          // this.$listeners.two();
         }
       };
       </script>
@@ -578,7 +616,7 @@ Vue 中的插槽 (slot) 提供了一个灵活的方式来分发父组件的内�
 
 3. **作用域插槽**: 允许父组件访问子组件的数据，因此在父组件中可以自定义内容而使用子组件的数据。
 
-## keep-alive的实现
+## keep-alive 的实现
 
 `keep-alive` 是 Vue.js 的内置组件，它可以使得被包裹的组件在切换时不被销毁而是被缓存。
 
@@ -606,52 +644,19 @@ Vue.js 将 DOM 节点抽象成了 VNode (虚拟节点)。`keep-alive` 的缓存�
 
 **在动态组件中的应用**:
 
-```js
+```vue
 <keep-alive :include="whiteList" :exclude="blackList" :max="amount">
-     <component :is="currentComponent"></component>
+  <component :is="currentComponent"></component>
 </keep-alive>
 ```
 
 **在vue-router中的应用**:
 
-```js
-<keep-alive :include="whiteList" :exclude="blackList" :max="amount">
-    <router-view></router-view>
-</keep-alive>
-```
-
-**vue 中完整示例**:
-
 ```vue
-<keep-alive>
-    <coma v-if="test"></coma>
-    <comb v-else></comb>
+<keep-alive :include="whiteList" :exclude="blackList" :max="amount">
+  <router-view></router-view>
 </keep-alive>
-<button @click="handleClick">请点击</button>
-
-<script>
-export default {
-    data () {
-        return {
-            test: true
-        }
-    },
-    methods: {
-        handleClick () {
-            this.test = !this.test;
-        }
-    }
-}
-</script>
 ```
-
-**参考**:
-
-- [keep-alive 官网](https://cn.vuejs.org/v2/api/#keep-alive)
-  
-- [keep-alive实现原理](https://www.jianshu.com/p/9523bb439950)
-
-- [Vue keep-alive的实现原理](https://blog.csdn.net/weixin_38189842/article/details/103999989)
 
 ## mixin
 
@@ -701,12 +706,20 @@ new Vue({
 **示例**:
 
 ```javascript
-// TODO: 提供一个模拟 v-model 的自定义指令示例
+Vue.directive('myModel', {
+  bind(el, binding, vnode) {
+    // 监听 input 事件
+    el.addEventListener('input', function(event) {
+      // 当 input 事件触发时，更新父组件中的数据
+      vnode.context[binding.expression] = event.target.value;
+    });
+  },
+  // 当指令的值更新时，将其同步到元素的 value 属性
+  update(el, binding) {
+    el.value = binding.value;
+  }
+});
 ```
-
-具体参考：[vue自定义指令模拟v-model指令](https://blog.csdn.net/qq_39157944/article/details/106262546)
-
----
 
 ## Vuex 的理解及使用场景
 
@@ -725,4 +738,31 @@ Vuex 是专为 Vue.js 应用程序开发的状态管理模式。每个 Vuex 应�
 4. **Action**: 用于提交 `mutation`，而不是直接变更状态。可以包含任意异步操作。
 5. **Module**: 允许将单一的 `store` 拆分为多个 `store`，但所有的状态仍然保存在一个单一的状态树中。
 
-![Vuex Architecture](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7249773a1634f779c48f3f0ffabf968~tplv-k3u1fbpfcp-zoom-1.image)
+![流程图](https://i.postimg.cc/66htCCZb/vuex.png)
+
+## Vue 和 React 的区别
+
+**共同点**：
+
+1. **数据驱动视图**：两者都采用数据来驱动视图的更新，确保数据变化时视图能够及时响应。
+2. **组件化**：Vue 和 React 都采用组件化的结构，使得开发更加模块化和可复用。
+3. **Virtual DOM**：两者都使用 Virtual DOM 来提高渲染效率，避免直接操作真实 DOM 带来的性能损耗。
+
+**不同点**：
+
+1. **核心思想**：
+   - **Vue**：作为一个灵活且易用的渐进式框架，Vue 采用数据拦截/代理的方式，使其对数据变化的侦测更为敏感和精确。
+   - **React**：强调函数式编程，特别是纯组件的概念，它倡导数据的不可变性和单向数据流。
+
+2. **组件写法**：
+   - **Vue**：推崇单文件组件格式，即在同一个文件中编写 HTML、CSS 和 JS。  
+   - **React**：推荐使用 JSX + inline style，即将 HTML 和 CSS 都集成到 JavaScript 中，实现 "all in js" 的概念。
+
+3. **Diff 算法**：
+   - **共同思路**：当不同的组件产生不同的 DOM 结构时，如果类型不同，则直接销毁旧的 DOM 并创建新的 DOM。通过唯一的 key 来区分同一层次的子节点。
+   - **Vue**：采用双端比较算法，从新旧 children 的两端开始比较，利用 key 值找到可复用的节点。这种方法可以减少节点移动的次数，从而减少不必要的性能损耗。
+   - **React**：虽然也使用 key 值进行比较，但在某些情况下可能会有更多的节点移动。
+
+4. **响应式原理**：
+   - **Vue**：通过依赖收集进行自动优化，数据是可变的。当数据发生变化时，Vue 会自动找到相关的组件并重新渲染。
+   - **React**：基于状态机的原理，需要手动优化。数据是不可变的，当数据发生变化时，需要使用 setState 方法。默认情况下，React 会以组件为根重新渲染整个组件树。
