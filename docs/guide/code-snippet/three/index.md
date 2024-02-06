@@ -2,7 +2,7 @@
 
 > 参考：[探索three.js](https://discoverthreejs.com/zh/)
 
-![Three.js](https://i.postimg.cc/L66YP9Jf/birds.gif)
+<!-- ![Three.js](https://i.postimg.cc/L66YP9Jf/birds.gif) -->
 
 ## 世界应用
 

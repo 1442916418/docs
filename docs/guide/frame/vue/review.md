@@ -35,7 +35,7 @@ vue.js 采用数据劫持结合发布者-订阅者模式，通过`Object.defineP
 
 每个`Vue`实例在创建时都会经历一系列的初始化过程，这些过程中的特定时刻都定义了相应的生命周期钩子，允许用户在这些时刻加入自己的代码。
 
-![Vue2 生命周期](https://i.postimg.cc/j5bY7jSr/vue2-life-cycle.webp)
+<!-- ![Vue2 生命周期](https://i.postimg.cc/j5bY7jSr/vue2-life-cycle.webp) -->
 
 - **创建阶段**：
   - `beforeCreate`: 在实例初始化后，数据观测和事件配置之前被调用。
@@ -738,7 +738,7 @@ Vuex 是专为 Vue.js 应用程序开发的状态管理模式。每个 Vuex 应�
 4. **Action**: 用于提交 `mutation`，而不是直接变更状态。可以包含任意异步操作。
 5. **Module**: 允许将单一的 `store` 拆分为多个 `store`，但所有的状态仍然保存在一个单一的状态树中。
 
-![流程图](https://i.postimg.cc/66htCCZb/vuex.png)
+<!-- ![流程图](https://i.postimg.cc/66htCCZb/vuex.png) -->
 
 ## Vue 和 React 的区别
 

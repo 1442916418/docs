@@ -2,7 +2,7 @@
 
 ## OSI 图
 
-![OSI 图片](https://i.postimg.cc/Hn6qR44p/osi.gif)
+<!-- ![OSI 图片](https://i.postimg.cc/Hn6qR44p/osi.gif) -->
 
 ## 1 物理层
 

@@ -267,15 +267,15 @@
   <body>
     <div class="slideshow-container">
       <div class="slide active">
-        <img src="https://i.postimg.cc/tR5z6NRP/1001028.jpg" style="width: 100%" />
+       <!-- <img src="https://i.postimg.cc/tR5z6NRP/1001028.jpg" style="width: 100%" />-->
       </div>
 
       <div class="slide">
-        <img src="https://i.postimg.cc/7YtMsP2Z/1001073.jpg" style="width: 100%" />
+       <!-- <img src="https://i.postimg.cc/7YtMsP2Z/1001073.jpg" style="width: 100%" />-->
       </div>
 
       <div class="slide">
-        <img src="https://i.postimg.cc/28S77L3t/2000494.jpg" style="width: 100%" />
+       <!-- <img src="https://i.postimg.cc/28S77L3t/2000494.jpg" style="width: 100%" />-->
       </div>
 
       <a class="prev" onclick="changeSlide(-1)">&#10094;</a>

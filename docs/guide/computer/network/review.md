@@ -320,7 +320,7 @@ TCP粘包是指发送方发送的多个包，在接收方被接收时合并为�
 
 为了进一步理解，我们可以分析下图的简化流程：
 
-![图片](https://i.postimg.cc/Y9mtgc9b/05b3fe9c411f4881a8b22fe37eae170b-tplv-k3u1fbpfcp-zoom-1.webp)
+<!-- ![图片](https://i.postimg.cc/Y9mtgc9b/05b3fe9c411f4881a8b22fe37eae170b-tplv-k3u1fbpfcp-zoom-1.webp) -->
 
 从上图我们可以得知：
 
@@ -348,7 +348,7 @@ TCP粘包是指发送方发送的多个包，在接收方被接收时合并为�
     1. 服务器认为缓存仍然有效，返回HTTP 304状态码，告诉浏览器可以使用缓存。
     2. 服务器认为缓存已经过期或无效，返回HTTP 200状态码和新的请求结果。
 
-![image.png](https://i.postimg.cc/PrHdLRkQ/5e0ce991db4847b98d9f049f9ffa5c93-tplv-k3u1fbpfcp-watermark.png)
+<!-- ![image.png](https://i.postimg.cc/PrHdLRkQ/5e0ce991db4847b98d9f049f9ffa5c93-tplv-k3u1fbpfcp-watermark.png) -->
 
 更多详细信息，请访问：[彻底理解浏览器的缓存机制](https://juejin.cn/post/6992843117963509791)
 
@@ -634,7 +634,7 @@ DNS 服务器的基本工作就是**接收来自客户端的查询消息**，然
 
 DNS 服务器上**事先保存**有前面这 3 种信息对应的记录数据。
 
-![DNS 服务器的基本工作](https://i.postimg.cc/rs44YQL4/dns.png)
+<!-- ![DNS 服务器的基本工作](https://i.postimg.cc/rs44YQL4/dns.png) -->
 
 例如，如果要查询 `www.wl.com` 这个域名对应的 IP 地址，客 户端会向 DNS 服务器发送包含以下信息的查询消息。
 
@@ -671,13 +671,13 @@ DNS 服务器上**事先保存**有前面这 3 种信息对应的记录数据。
 
 com、cn 这些域（称为顶级域），它们**各自负责**保存下级 DNS 服务器的信息。在互联网中，com 和 cn 的上面还有一级域，称为**根域**。根域不像 com、cn 那样有自己的名字，因此在一般书写域名时经常被省略，如果要明确表示根域，应该像 <www.wl.com>. 这样在域名的**最后再加上一个句点**，而这个最后的句点就代表根域。
 
-![解析](https://i.postimg.cc/rp59KVHW/dns1.png)
+<!-- ![解析](https://i.postimg.cc/rp59KVHW/dns1.png) -->
 
 > 根域的 DNS 服务器中保管着 com、cn 等的 DNS 服务器的信息
 
 除此之外还需要完成另一项工作，那就是将根域的 DNS 服务器信息保存在互联网中**所有**的 DNS 服务器中。客户端只要能够找到任意一台DNS 服务器，就可以通过它找到根域 DNS 服务器，然后再一路顺藤摸瓜找到位于下层的某台目标 DNS 服务器。
 
-![解析](https://i.postimg.cc/rswGnSwC/dns2.png)
+<!-- ![解析](https://i.postimg.cc/rswGnSwC/dns2.png) -->
 
 分配给根域 DNS 服务器的 IP 地址在全世界**仅有 13 个** ，而且这些地址几乎不发生变化。
 
@@ -705,7 +705,7 @@ DNS 解析流程：
 
 8.本地 DNS 再将 IP 地址**返回客户端**，客户端和目标建立连接。
 
-![解析](https://i.postimg.cc/LXTB3y28/dns3.png)
+<!-- ![解析](https://i.postimg.cc/LXTB3y28/dns3.png) -->
 
 通过缓存加快 DNS 服务器的响应：
 
@@ -725,7 +725,7 @@ DNS 解析流程：
 
 ### 三次握手
 
-![TCP 头部信息](https://i.postimg.cc/5ttCMxVb/tcp.png)
+<!-- ![TCP 头部信息](https://i.postimg.cc/5ttCMxVb/tcp.png) -->
 
 字段解析：
 
@@ -750,7 +750,7 @@ DNS 解析流程：
 
 ---
 
-![三次握手](https://i.postimg.cc/q7QzmWhS/tcp1.png)
+<!-- ![三次握手](https://i.postimg.cc/q7QzmWhS/tcp1.png) -->
 
 1.**SYN**
 
@@ -797,7 +797,7 @@ TCP 采用**滑动窗口**来管理数据发送和 ACK 号的操作。
 
 服务器和客户端怎么确定拥塞窗口大小的最优值呢:解决方案就是**慢启动**:即在分组被确认后增大窗口大小，**慢慢地启动**。
 
-![慢启动](https://i.postimg.cc/TwzLmgW3/tcp2.png)
+<!-- ![慢启动](https://i.postimg.cc/TwzLmgW3/tcp2.png) -->
 
 无论带宽多大，每个 TCP 连接都**必须经过慢启动阶段**，换句话说，应用**不可能一上来就完全利用连接的最大带宽**，把**初始拥塞窗口大小**增加到一个合理值，可以减少客户端与服务器之间的往返时间。
 
@@ -807,7 +807,7 @@ TCP 采用**滑动窗口**来管理数据发送和 ACK 号的操作。
 
 每个 TCP 分组都会带着一个**唯一的序列号**被发出，而所有分组**必须按顺序**传送到接收端。如果中途有一个分组没能到达接收端，那么后续分组必须**保存在接收端的 TCP 缓冲区，等待丢失的分组重发并到达接收端**。这**一切**都发生在 TCP 层，**应用程序**对 TCP 重发和缓冲区中排队的分组**一无所知**，必须等待分组全部到达才能访问数据。在此之前，应用程序只能在通过套接字读数据时感觉到**延迟交付**。这种效应称为TCP 队首阻塞Head of Line Blocking(HOL)
 
-![TCP 队首阻塞](https://i.postimg.cc/qMLqB9QR/tcp3.png)
+<!-- ![TCP 队首阻塞](https://i.postimg.cc/qMLqB9QR/tcp3.png) -->
 
 队首阻塞造成的延迟可以让我们的应用程序不用关心**分组重排和重组**，分组到达时间会存在**无法预知的延迟变化**。这个时间变化通常被称为**抖动**，也是影响应用程序性能的一个主要因素。
 
@@ -815,7 +815,7 @@ TCP 采用**滑动窗口**来管理数据发送和 ACK 号的操作。
 
 ### 四次挥手
 
-![TCP 四次挥手](https://i.postimg.cc/nLvc5gsp/tcp4.jpg)
+<!-- ![TCP 四次挥手](https://i.postimg.cc/nLvc5gsp/tcp4.jpg) -->
 
 1.**FIN**
   

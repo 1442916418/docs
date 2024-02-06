@@ -4,11 +4,11 @@
 
 ## [折线图](https://github.com/1442916418/echarts-example/blob/main/src/charts/line/line.html)
 
-![line](https://i.postimg.cc/HxGnmjXN/line.jpg)
+<!-- ![line](https://i.postimg.cc/HxGnmjXN/line.jpg) -->
 
 ### 未来一周的气温变化统计
 
-![line](https://i.postimg.cc/ZnQYyyk4/line1.jpg)
+<!-- ![line](https://i.postimg.cc/ZnQYyyk4/line1.jpg) -->
 
 - **目的**: 展示未来一周内最高气温与最低气温的变化趋势。
 
@@ -36,7 +36,7 @@
 
 ### 近九天氮气消耗量统计
 
-![line](https://i.postimg.cc/qvvFtZJc/line2.jpg)
+<!-- ![line](https://i.postimg.cc/qvvFtZJc/line2.jpg) -->
 
 - **目的**: 展示近九天内总氮气消耗量与上月同期的氮气消耗量的对比。
 
@@ -63,7 +63,7 @@
 
 ### 近十天告警次数统计
 
-![line](https://i.postimg.cc/yd3GnJtL/line3.jpg)
+<!-- ![line](https://i.postimg.cc/yd3GnJtL/line3.jpg) -->
 
 - **目的**: 展示近十天的告警次数，从而了解告警的频率和重要性。
 
@@ -90,11 +90,11 @@
 
 ## [柱状图](https://github.com/1442916418/echarts-example/blob/main/src/charts/bar/bar.html)
 
-![line](https://i.postimg.cc/XvBqt9GF/bar.jpg)
+<!-- ![line](https://i.postimg.cc/XvBqt9GF/bar.jpg) -->
 
 ### 月度分类堆叠柱状图分析
 
-![bar1](https://i.postimg.cc/FFft3mdP/bar1.jpg)
+<!-- ![bar1](https://i.postimg.cc/FFft3mdP/bar1.jpg) -->
 
 - **目的**: 展示8个不同月份（1Month至8Month）在四个分类（报警器1、报警器2、报警器3、报警器4）中的分布和数量。
 
@@ -109,7 +109,7 @@
 
 ### 车辆性能对比分析
 
-![bar](https://i.postimg.cc/mhxyF7zG/bar2.jpg)
+<!-- ![bar](https://i.postimg.cc/mhxyF7zG/bar2.jpg) -->
 
 - **目的**: 对比5款车型（车型1至车型5）在两个主要性能指标上的表现：最大速度 (km/h) 和百公里油耗 (L/100km)。
 
@@ -125,7 +125,7 @@
 
 ### 五个月报警器销售对比
 
-![bar](https://i.postimg.cc/GtNzbZJz/bar3.jpg)
+<!-- ![bar](https://i.postimg.cc/GtNzbZJz/bar3.jpg) -->
 
 - **目的**: 展示在过去五个月内，报警器1与报警器2的销售数量对比。
 
@@ -144,7 +144,7 @@
 
 ### 十二月内产品A与产品B的销售对比
 
-![bar](https://i.postimg.cc/d1dwwYYt/bar4.jpg)
+<!-- ![bar](https://i.postimg.cc/d1dwwYYt/bar4.jpg) -->
 
 - **目的**: 展示在过去十二个月内，产品A与产品B的销售数量对比。
 
@@ -162,7 +162,7 @@
 
 ### 六个月内总销售的数据趋势
 
-![bar](https://i.postimg.cc/vmpwqHKH/bar5.jpg)
+<!-- ![bar](https://i.postimg.cc/vmpwqHKH/bar5.jpg) -->
 
 - **目的**: 展示在过去六个月内总销售数据的变化趋势。
 
@@ -187,7 +187,7 @@
 
 ### 1-5楼层报警次数和故障次数统计
 
-![bar](https://i.postimg.cc/L8Fp3sr9/bar6.jpg)
+<!-- ![bar](https://i.postimg.cc/L8Fp3sr9/bar6.jpg) -->
 
 - **目的**: 展示在1-5楼层中的报警次数和故障次数。
 
@@ -217,15 +217,15 @@
 
 ### 动画延迟柱状图
 
-![bar](https://i.postimg.cc/Hk1tWG7v/bar7.jpg)
+<!-- ![bar](https://i.postimg.cc/Hk1tWG7v/bar7.jpg) -->
 
 ## [饼图](https://github.com/1442916418/echarts-example/blob/main/src/charts/pie/pie.html)
 
-![pie](https://i.postimg.cc/8z0syZ5N/pie.jpg)
+<!-- ![pie](https://i.postimg.cc/8z0syZ5N/pie.jpg) -->
 
 ### 部件数量指数仪表盘
 
-![pie](https://i.postimg.cc/YSDWG27t/pie1.jpg)
+<!-- ![pie](https://i.postimg.cc/YSDWG27t/pie1.jpg) -->
 
 - **目的**: 展示当前的部件数量指数及其与正常的关系。
 
@@ -249,7 +249,7 @@
 
 ### 预警信息处理状态分析
 
-![pie](https://i.postimg.cc/1X1FrWjt/pie2.jpg)
+<!-- ![pie](https://i.postimg.cc/1X1FrWjt/pie2.jpg) -->
 
 - **目的**: 展示预警信息在三个处理状态（待处理、已处理、处理中）的分布情况。
 
@@ -275,7 +275,7 @@
 
 ### 设备状态分析
 
-![pie](https://i.postimg.cc/SKLS2kMJ/pie3.jpg)
+<!-- ![pie](https://i.postimg.cc/SKLS2kMJ/pie3.jpg) -->
 
 - **目的**: 展示设备在三个状态（正常、异常、未使用）的分布情况。
 
@@ -301,7 +301,7 @@
 
 ### 告警信息状态分析
 
-![pie](https://i.postimg.cc/xdYLwjGR/pie4.jpg)
+<!-- ![pie](https://i.postimg.cc/xdYLwjGR/pie4.jpg) -->
 
 - **目的**: 展示告警信息在两个状态（待处理、已处理）的分布情况。
 
@@ -325,7 +325,7 @@
 
 ### 告警信息处理进度分析
 
-![pie](https://i.postimg.cc/s2589Js2/pie5.jpg)
+<!-- ![pie](https://i.postimg.cc/s2589Js2/pie5.jpg) -->
 
 - **目的**: 展示告警信息当前的处理进度。
 
@@ -348,7 +348,7 @@
 
 ### 各省市及国外项目数量统计分析
 
-![pie](https://i.postimg.cc/J0g3y9yd/pie6.jpg)
+<!-- ![pie](https://i.postimg.cc/J0g3y9yd/pie6.jpg) -->
 
 - **目的**: 展示国内不同省市以及国外的项目数量分布情况。
 
@@ -381,12 +381,12 @@
 
 ## [仪表盘](https://github.com/1442916418/echarts-example/blob/main/src/charts/gauge/gauge.html)
 
-![line](https://i.postimg.cc/6p3yLkBM/gauge.jpg)
+<!-- ![line](https://i.postimg.cc/6p3yLkBM/gauge.jpg) -->
 
 ### 旋转式仪表盘
 
-![gauge](https://i.postimg.cc/SxKKHdyT/gauge1.jpg)
-![gauge](https://i.postimg.cc/VvNpBKQM/gauge1-1.jpg)
+<!-- ![gauge](https://i.postimg.cc/SxKKHdyT/gauge1.jpg)
+![gauge](https://i.postimg.cc/VvNpBKQM/gauge1-1.jpg) -->
 
 - **目的**: 展示当前压力值及其与上下限的关系。
 
@@ -406,8 +406,8 @@
 
 ### 压力仪表盘
 
-![gauge](https://i.postimg.cc/0N3SZQwN/gauge2.jpg)
-![gauge](https://i.postimg.cc/4yFM8ps0/gauge2-1.jpg)
+<!-- ![gauge](https://i.postimg.cc/0N3SZQwN/gauge2.jpg)
+![gauge](https://i.postimg.cc/4yFM8ps0/gauge2-1.jpg) -->
 
 - **目的**: 展示当前压力值及其与上下限的关系。
 
@@ -431,9 +431,9 @@
   2. 尚未达到红色超压区域，这意味着当前压力尚未达到潜在的上阀值。
 
 ### 压力仪表盘分析
-
+<!-- 
 ![gauge](https://i.postimg.cc/W398wj7p/gauge3.jpg)
-![gauge](https://i.postimg.cc/mDZV9hC6/gauge3-1.jpg)
+![gauge](https://i.postimg.cc/mDZV9hC6/gauge3-1.jpg) -->
 
 - **目的**: 展示当前压力值及其与上下限的关系。
 
