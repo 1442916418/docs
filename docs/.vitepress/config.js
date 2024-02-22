@@ -11,6 +11,9 @@ export default {
           { text: 'HTML', link: '/guide/base/HTML/index' },
           { text: 'CSS', link: '/guide/base/CSS/index' },
           { text: 'JavaScript', link: '/guide/base/JavaScript/index' },
+          { text: 'TypeScript', link: '/guide/base/TypeScript/index' },
+          { text: 'WebGL', link: '/guide/base/WebGL/index' },
+          { text: 'Three', link: '/guide/base/Three/index' },
           { text: '问题', link: '/guide/base/questions/index' }
         ]
       },

@@ -6,4 +6,10 @@
 
 ## [JavaScript](./JavaScript/index.md)
 
+## [TypeScript](./TypeScript/index.md)
+
+## [WebGL](./WebGL/index.md)
+
+## [Three.js](./Three/index.md)
+
 ## [前端工作面试问题](./questions/index.md)
