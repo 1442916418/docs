@@ -6,11 +6,16 @@ export default {
     nav: [
       // { text: '导航', link: '/guide/index' },
       {
-        text: '基础',
+        text: '前端',
         items: [
-          { text: 'HTML', link: '/guide/base/HTML/index' },
-          { text: 'CSS', link: '/guide/base/CSS/index' },
-          { text: 'JavaScript', link: '/guide/base/JavaScript/index' },
+          {
+            text: '三板斧',
+            items: [
+              { text: 'HTML', link: '/guide/base/HTML/index' },
+              { text: 'CSS', link: '/guide/base/CSS/index' },
+              { text: 'JavaScript', link: '/guide/base/JavaScript/index' }
+            ]
+          },
           { text: 'TypeScript', link: '/guide/base/TypeScript/index' },
           { text: 'WebGL', link: '/guide/base/WebGL/index' },
           { text: 'Three', link: '/guide/base/Three/index' },
@@ -21,7 +26,9 @@ export default {
         text: '框架',
         items: [
           { text: 'Vue', link: '/guide/frame/vue/index' },
-          { text: 'Vue3', link: '/guide/frame/vue3/index' }
+          { text: 'Vue3', link: '/guide/frame/vue3/index' },
+          { text: 'vue-router', link: '/guide/frame/vue-router/index' },
+          { text: 'vuex', link: '/guide/frame/vuex/index' }
         ]
       },
       {
@@ -37,11 +44,11 @@ export default {
           { text: 'Three.js', link: '/guide/code-snippet/three/index' },
           { text: 'ECharts.js', link: '/guide/code-snippet/echarts/index' }
         ]
-      },
-      {
-        text: '记录',
-        link: '/guide/records/index'
       }
+      // {
+      //   text: '记录',
+      //   link: '/guide/records/index'
+      // }
     ],
     // editLink: {
     //   pattern: 'https://github.com/1442916418/docs/main/docs/:path',

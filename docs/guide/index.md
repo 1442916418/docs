@@ -1,6 +1,6 @@
 # 导航
 
-## [前端三板斧](./base/index.md)
+## [前端](./base/index.md)
 
 ## [框架](./frame/index.md)
 

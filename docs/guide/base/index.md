@@ -1,10 +1,12 @@
-# 前端三板斧
+# 前端
 
-## [HTML](./HTML/index.md)
+## 前端三板斧
 
-## [CSS](./CSS/index.md)
+### [HTML](./HTML/index.md)
 
-## [JavaScript](./JavaScript/index.md)
+### [CSS](./CSS/index.md)
+
+### [JavaScript](./JavaScript/index.md)
 
 ## [TypeScript](./TypeScript/index.md)
 
