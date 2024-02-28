@@ -14,4 +14,6 @@
 
 ## [Three.js](./Three/index.md)
 
+## [Blender](./blender/index.md)
+
 ## [前端工作面试问题](./questions/index.md)

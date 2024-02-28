@@ -19,6 +19,7 @@ export default {
           { text: 'TypeScript', link: '/guide/base/TypeScript/index' },
           { text: 'WebGL', link: '/guide/base/WebGL/index' },
           { text: 'Three', link: '/guide/base/Three/index' },
+          { text: 'Blender', link: '/guide/base/blender/index' },
           { text: '问题', link: '/guide/base/questions/index' }
         ]
       },
