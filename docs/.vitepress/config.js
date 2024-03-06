@@ -82,5 +82,5 @@ export default {
   markdown: {
     lineNumbers: true
   },
-  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]]
+  head: [['link', { rel: 'icon', href: '/docs/images/favicon.ico' }]]
 }
