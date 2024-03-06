@@ -8,6 +8,7 @@ export default {
       {
         text: '前端',
         items: [
+          { text: '主页', link: '/guide/base/index' },
           {
             text: '三板斧',
             items: [
@@ -26,6 +27,7 @@ export default {
       {
         text: '框架',
         items: [
+          { text: '主页', link: '/guide/frame/index' },
           { text: 'Vue', link: '/guide/frame/vue/index' },
           { text: 'Vue3', link: '/guide/frame/vue3/index' },
           { text: 'vue-router', link: '/guide/frame/vue-router/index' },
@@ -35,6 +37,7 @@ export default {
       {
         text: '计算机',
         items: [
+          { text: '主页', link: '/guide/computer/index' },
           { text: '网络', link: '/guide/computer/network/index' },
           { text: 'OSI', link: '/guide/computer/osi/index' }
         ]
@@ -42,8 +45,16 @@ export default {
       {
         text: '代码片段/库',
         items: [
+          { text: '主页', link: '/guide/code-snippet/index' },
           { text: 'Three.js', link: '/guide/code-snippet/three/index' },
           { text: 'ECharts.js', link: '/guide/code-snippet/echarts/index' }
+        ]
+      },
+      {
+        text: '问题/技巧',
+        items: [
+          { text: '主页', link: '/guide/issue/index' },
+          { text: 'Node', link: '/guide/issue/node/index' }
         ]
       }
       // {
