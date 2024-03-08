@@ -25,13 +25,15 @@ export default {
         ]
       },
       {
-        text: '框架',
+        text: '框架/插件',
         items: [
           { text: '主页', link: '/guide/frame/index' },
-          { text: 'Vue', link: '/guide/frame/vue/index' },
+          { text: 'Vue2', link: '/guide/frame/vue/index' },
+          { text: 'Vue2 插件', link: '/guide/frame/vue/plugins' },
           { text: 'Vue3', link: '/guide/frame/vue3/index' },
-          { text: 'vue-router', link: '/guide/frame/vue-router/index' },
-          { text: 'vuex', link: '/guide/frame/vuex/index' }
+          { text: 'Vue3 插件', link: '/guide/frame/vue3/plugins' },
+          { text: 'webpack', link: '/guide/frame/webpack/index' },
+          { text: '小程序', link: '/guide/frame/applet/index' }
         ]
       },
       {
