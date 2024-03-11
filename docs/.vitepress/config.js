@@ -30,9 +30,10 @@ export default {
           { text: '主页', link: '/guide/frame/index' },
           { text: 'Vue2', link: '/guide/frame/vue/index' },
           { text: 'Vue3', link: '/guide/frame/vue3/index' },
-          { text: 'webpack', link: '/guide/frame/webpack/index' },
+          { text: 'Webpack', link: '/guide/frame/webpack/index' },
           { text: '小程序', link: '/guide/frame/applet/index' },
-          { text: 'uni-app', link: '/guide/frame/uni-app/index' }
+          { text: 'uni-app', link: '/guide/frame/uni-app/index' },
+          { text: 'Rush', link: '/guide/frame/rush/index' }
         ]
       },
       {

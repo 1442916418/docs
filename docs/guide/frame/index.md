@@ -13,3 +13,5 @@
 ## [小程序](./applet/index.md)
 
 ## [uni-app](./uni-app/index.md)
+
+## [Rush](./rush/index.md)
