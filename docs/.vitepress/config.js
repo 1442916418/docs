@@ -29,11 +29,10 @@ export default {
         items: [
           { text: '主页', link: '/guide/frame/index' },
           { text: 'Vue2', link: '/guide/frame/vue/index' },
-          { text: 'Vue2 插件', link: '/guide/frame/vue/plugins' },
           { text: 'Vue3', link: '/guide/frame/vue3/index' },
-          { text: 'Vue3 插件', link: '/guide/frame/vue3/plugins' },
           { text: 'webpack', link: '/guide/frame/webpack/index' },
-          { text: '小程序', link: '/guide/frame/applet/index' }
+          { text: '小程序', link: '/guide/frame/applet/index' },
+          { text: 'uni-app', link: '/guide/frame/uni-app/index' }
         ]
       },
       {
