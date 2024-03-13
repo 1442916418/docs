@@ -15,3 +15,5 @@
 ## [uni-app](./uni-app/index.md)
 
 ## [Rush](./rush/index.md)
+
+## [包管理工具](./package-mange/index.md)
