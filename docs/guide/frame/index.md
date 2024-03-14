@@ -17,3 +17,5 @@
 ## [Rush](./rush/index.md)
 
 ## [包管理工具](./package-mange/index.md)
+
+## [渲染模式](./render-mode/index.md)
